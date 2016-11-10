@@ -69,3 +69,80 @@
    69  top
    70  ll
    71  history >> commands.md
+   72  ll
+   73  git add commands.md 
+   74  git commit -m "Adding commands.md.."
+   75  vi commands.md 
+   76  ll
+   77  jobs
+   78  exit
+   79  apt-get help
+   80  apt-get update
+   81  sudo su -
+   82  cd /var/www
+   83  ll
+   84  cd html
+   85  ll
+   86  cd ~
+   87  ll
+   88  cd Development/
+   89  ll
+   90  cd rgt_3.14/
+   91  ll
+   92  git pull
+   93  git status
+   94  git log
+   95  ll
+   96  cd kgwynn
+   97  ll
+   98  cd webroot
+   99  ll
+  100  cd ..
+  101  ll
+  102  cd ..
+  103  ll
+  104  mv commands.md kgwynn
+  105  ll
+  106  cd kgwynn
+  107  ll
+  108  cd /var/www
+  109  ll
+  110  cd html
+  111  ll
+  112  cat index.html 
+  113  apachectl
+  114  apachectl stop
+  115  cd ..
+  116  ll
+  117  cp html/index.html ~/Development/rgt_3.14/kgwynn/webroot/apache.html
+  118  ll
+  119  rm -Rf html
+  120  sudo rm -Rf html
+  121  ln
+  122  ln --help
+  123  sudo ln -s ~/Development/rgt_3.14/kgwynn/webroot/ html
+  124  ll
+  125  apachectl start
+  126  sudo apachectl start
+  127  cd ~
+  128  cd Development/
+  129  cd rgt_3.14/
+  130  cd kgwynn
+  131  ll
+  132  cd web
+  133  cd webroot/
+  134  ll
+  135  vi index.html 
+  136  vi ~/.vimrc
+  137  vi index.html 
+  138  vi ~/.vimrc
+  139  vi index.html 
+  140  cd ..
+  141  git status
+  142  git add commands.md 
+  143  git add webroot/index.html 
+  144  history
+  145  type commands.md
+  146  ll
+  147  cat commands.md 
+  148  history > commands.md 

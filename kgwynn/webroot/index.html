@@ -1,7 +1,28 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
+		<meta charset="utf-8" />
 		<title>RGT 3.14 - KGWYNN</title>
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+		<style type="text/css">
+			body { margin: auto; }
+			input { position: absolute; left:-15000px; top:-15000px; text-align: center; border: none; font-size: 20pt; }
+		</style>
+		<script type="text/javascript">
+			var windowResize = function() {
+				$input = $('INPUT');
+				$window = $(window);
+				$input.css('width', $window.width());
+				$input.css('left', $window.width() / 2 - $input.width() / 2 + 'px');
+				$input.css('top', $window.height() / 2 - $input.height() / 2 + 'px');
+			};
+
+			$(document).ready(function(){
+				$(window).on('resize', windowResize);
+				windowResize();
+				$('INPUT').focus();
+			});
+		</script>
 	</head>
 	<body>
 		<input id="keyboard-input" type="text">
