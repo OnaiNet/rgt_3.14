@@ -1,0 +1,54 @@
+body { font-family: sans-serif; margin: auto; overflow: hidden; }
+* { transition: border-color 1s; box-sizing: border-box; }
+#keyboard-input { position: absolute; left:-15000px; top:-15000px; text-align: center; border-width: 2px 0px; border-color: transparent; border-style: solid; font-size: 20pt; background-color: transparent; }
+#keyboard-input:focus { outline: none; }
+.error { border-color: red !important; }
+.transmitting { border-color: green !important; }
+#output { position: absolute; top: -15000px; left: -15000px; width: auto; white-space: nowrap; }
+#output.animating {
+	animation: animateOutput 4s 1;
+}
+
+
+@keyframes animateOutput {
+0% {
+    color: red;
+    left: -1000px;
+    font-size: 24pt;
+    top: 20px;
+    letter-spacing: 2px;
+    font-weight: 300;
+}
+20% {
+    color: green;
+    left: 30px;
+    font-size: 38pt;
+    top: 80px;
+    letter-spacing: 28px;
+    font-weight: 100;
+}
+40% {
+    color: orange;
+    left: 380px;
+    font-size: 21pt;
+    top: 40px;
+    letter-spacing: 4px;
+    font-weight: 800;
+}
+85% {
+    color: black;
+    left: 660px;
+    font-size: 30pt;
+    top: 120px;
+    letter-spacing: 40px;
+    font-weight: 400;
+}
+100% {
+    color: gold;
+    left: 2600px;
+    font-size: 14pt;
+    top: 10px;
+    letter-spacing: 0px;
+    font-weight: 100;
+}
+}
