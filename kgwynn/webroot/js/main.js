@@ -53,7 +53,7 @@ var animateInput = function() {
 };
 
 var tweet = function(tweet) {
-	$.ajax('/tweet/', {
+	$.ajax('tweet/', {
 		data: {
 			tweet: tweet
 		},
