@@ -49,7 +49,19 @@ var animateInput = function() {
 	console.log('Now, animate the input!');
 	$output.addClass('animating');
 	$output.text(output);
-	setTimeout(function() { $output.removeClass('animating'); }, 4500);
+	setTimeout(function() { $output.removeClass('animating'); tweet(output); }, 4500);
+};
+
+var tweet = function(tweet) {
+	$.ajax('/tweet/', {
+		data: {
+			tweet: tweet
+		},
+		method: 'POST',
+		complete: function(response) {
+			console.log(response);
+		}
+	});
 };
 
 var onError = function() {
