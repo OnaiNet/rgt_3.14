@@ -13,9 +13,9 @@ body { font-family: sans-serif; margin: auto; overflow: hidden; }
 @keyframes animateOutput {
 0% {
     color: red;
-    left: -20%;
+    left: -2000px;
     font-size: 24pt;
-    top: -20%;
+    top: 0px;
     letter-spacing: 2px;
     font-weight: 300;
 }
@@ -48,6 +48,6 @@ body { font-family: sans-serif; margin: auto; overflow: hidden; }
     top: 50%;
     letter-spacing: 0px;
     font-weight: 100;
-    left: 100%;
+    left: 120%;
 }
 }
