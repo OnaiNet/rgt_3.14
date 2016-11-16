@@ -6,7 +6,7 @@
  * @since 2016-11-15
  */
 
-define('WORDS_FILE', '/usr/dict/words');
+define('WORDS_FILE', file_exists('/usr/dict/words') ? '/usr/dict/words' : '/usr/share/dict/words');
 define('DEBUG', !empty($_GET['debug']));
 
 $input = trim($_GET['input']);
