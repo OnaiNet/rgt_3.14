@@ -1,0 +1,65 @@
+﻿[
+  {
+    "preDelay": 0,
+    "postDelay": 100,
+    "loops":  5,
+    "duration": 1000,
+    "pins": [
+      17,
+      18,
+      27
+    ],
+    "startValues": [
+      1,
+      0,
+      0
+    ],
+    "endValues": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "preDelay": 0,
+    "postDelay": 100,
+    "loops": 5,
+    "duration": 1000,
+    "pins": [
+      17,
+      18,
+      27
+    ],
+    "startValues": [
+      0,
+      1,
+      0
+    ],
+    "endValues": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "preDelay": 0,
+    "postDelay": 100,
+    "loops": 5,
+    "duration": 1000,
+    "pins": [
+      17,
+      18,
+      27
+    ],
+    "startValues": [
+      0,
+      0,
+      1
+    ],
+    "endValues": [
+      0,
+      0,
+      0
+    ]
+  }
+]

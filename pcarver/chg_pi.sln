@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSocketConsoleServer", "WebSocketConsoleServer\WebSocketConsoleServer.csproj", "{076A5C07-041C-4AAD-B2D8-ED58EC023BE9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{9D7AB939-2479-411E-8748-132A403A2185}"
+	ProjectSection(SolutionItems) = preProject
+		WebSocketClient.html = WebSocketClient.html
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vtortola.WebSockets.Rfc6455", "WebSocketListener\vtortola.WebSockets.Rfc6455\vtortola.WebSockets.Rfc6455.csproj", "{72114F0D-EC56-43D5-8C13-43FB013C0C1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vtortola.WebSockets", "WebSocketListener\vtortola.WebSockets\vtortola.WebSockets.csproj", "{1BD8E3C1-EF7D-4D58-89E2-33E5EC7C9406}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vtortola.WebSockets.Deflate", "WebSocketListener\vtortola.WebSockets.Deflate\vtortola.WebSockets.Deflate.csproj", "{3BFDAE73-A6A9-40B9-9026-84DD005BBAC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReceiveFromMachineConsole", "ReceiveFromMachineConsole\ReceiveFromMachineConsole.csproj", "{6D77AA79-7486-4F5B-A1FD-8CA8F9D8FFFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TranslateApiConsoleHost", "TranslateApiConsoleHost\TranslateApiConsoleHost.csproj", "{407A0D27-99C5-4DB3-A3ED-C377B2863F14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TranslateCore", "TranslationCore\TranslateCore.csproj", "{8128D8A3-200A-42A2-B284-8818F5A6E542}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiGpioConsoleHost", "PiGpioConsoleHost\PiGpioConsoleHost.csproj", "{DAC19D2C-C267-47A2-8026-9C272D98803E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GpioCore", "GpioCore\GpioCore.csproj", "{57FC566D-D931-4A12-80B8-5C9C13D87253}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GpioClientUtility", "GpioClientUtility\GpioClientUtility.csproj", "{A3140386-1711-410C-97F8-7B593D9F53F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{076A5C07-041C-4AAD-B2D8-ED58EC023BE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{076A5C07-041C-4AAD-B2D8-ED58EC023BE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{076A5C07-041C-4AAD-B2D8-ED58EC023BE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{076A5C07-041C-4AAD-B2D8-ED58EC023BE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72114F0D-EC56-43D5-8C13-43FB013C0C1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72114F0D-EC56-43D5-8C13-43FB013C0C1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72114F0D-EC56-43D5-8C13-43FB013C0C1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72114F0D-EC56-43D5-8C13-43FB013C0C1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BD8E3C1-EF7D-4D58-89E2-33E5EC7C9406}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BD8E3C1-EF7D-4D58-89E2-33E5EC7C9406}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BD8E3C1-EF7D-4D58-89E2-33E5EC7C9406}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BD8E3C1-EF7D-4D58-89E2-33E5EC7C9406}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BFDAE73-A6A9-40B9-9026-84DD005BBAC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BFDAE73-A6A9-40B9-9026-84DD005BBAC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BFDAE73-A6A9-40B9-9026-84DD005BBAC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BFDAE73-A6A9-40B9-9026-84DD005BBAC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D77AA79-7486-4F5B-A1FD-8CA8F9D8FFFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D77AA79-7486-4F5B-A1FD-8CA8F9D8FFFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D77AA79-7486-4F5B-A1FD-8CA8F9D8FFFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D77AA79-7486-4F5B-A1FD-8CA8F9D8FFFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{407A0D27-99C5-4DB3-A3ED-C377B2863F14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{407A0D27-99C5-4DB3-A3ED-C377B2863F14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{407A0D27-99C5-4DB3-A3ED-C377B2863F14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{407A0D27-99C5-4DB3-A3ED-C377B2863F14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8128D8A3-200A-42A2-B284-8818F5A6E542}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8128D8A3-200A-42A2-B284-8818F5A6E542}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8128D8A3-200A-42A2-B284-8818F5A6E542}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8128D8A3-200A-42A2-B284-8818F5A6E542}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAC19D2C-C267-47A2-8026-9C272D98803E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAC19D2C-C267-47A2-8026-9C272D98803E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAC19D2C-C267-47A2-8026-9C272D98803E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAC19D2C-C267-47A2-8026-9C272D98803E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57FC566D-D931-4A12-80B8-5C9C13D87253}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57FC566D-D931-4A12-80B8-5C9C13D87253}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57FC566D-D931-4A12-80B8-5C9C13D87253}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57FC566D-D931-4A12-80B8-5C9C13D87253}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3140386-1711-410C-97F8-7B593D9F53F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3140386-1711-410C-97F8-7B593D9F53F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3140386-1711-410C-97F8-7B593D9F53F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3140386-1711-410C-97F8-7B593D9F53F0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

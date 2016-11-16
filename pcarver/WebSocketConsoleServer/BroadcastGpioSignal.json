@@ -1,0 +1,44 @@
+﻿[
+  {
+    "preDelay": 0,
+    "postDelay": 200,
+    "loops": 4,
+    "duration": 500,
+    "pins": [
+      17,
+      18,
+      27
+    ],
+    "startValues": [
+      0,
+      1,
+      0
+    ],
+    "endValues": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "preDelay": 0,
+    "postDelay": 0,
+    "loops": 1,
+    "duration": 3000,
+    "pins": [
+      17,
+      18,
+      27
+    ],
+    "startValues": [
+      0,
+      1,
+      0
+    ],
+    "endValues": [
+      0,
+      0,
+      0
+    ]
+  }
+]
