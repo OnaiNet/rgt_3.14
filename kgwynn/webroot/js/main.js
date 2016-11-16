@@ -64,6 +64,19 @@ var tweet = function(tweet) {
 	});
 };
 
+var telephone = function(input) {
+	$.ajax('telephone/', {
+		data: {
+			input: input
+		},
+		complete: function(response) {
+			console.log(response);
+			var result = response.responseText;
+			console.log('Telephone: ' + result);
+		}
+	});
+};
+
 var onError = function() {
 	$input.addClass('error');
 	setTimeout(function() {
@@ -73,7 +86,7 @@ var onError = function() {
 
 $(document).ready(function(){
 	$window.on('resize', onWindowResize);
-	$input.on('keydown', onKeydown).on('blur', function() { this.focus(); });
+	$input.on('keydown', onKeydown);//.on('blur', function() { this.focus(); });
 	onWindowResize();
 	$input.focus();
 });
