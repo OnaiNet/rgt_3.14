@@ -2,8 +2,11 @@
 var $input = $('INPUT');
 var output = '';
 var $output = $('#output');
+var result = '';
+var $result = $('#result');
 var $window = $(window);
 var $body = $('BODY');
+var connection;  // WebSocket connection to listen for Result
 
 var onWindowResize = function() {
 	$input.css('width', $window.width());
@@ -12,6 +15,8 @@ var onWindowResize = function() {
 };
 
 var onKeydown = function(e) {
+	$result.html(''); // clear out the result, just in case.
+
 	if (e.keyCode == 13) {
 		if (!validate($input.val())) {
 			onError();
@@ -30,6 +35,7 @@ var validate = function(input) {
 var submitOutput = function(input) {
 	output = input;
 	$input.addClass('transmitting');
+	console.log('Visually clearning input box...');
 	clearInput();
 };
 
@@ -46,22 +52,33 @@ var clearInput = function() {
 
 var animateInput = function() {
 	$input.removeClass('transmitting');
-	console.log('Now, animate the input!');
+	console.log('Animating the input...');
 	$output.addClass('animating');
 	$output.text(output);
-	setTimeout(function() { $output.removeClass('animating'); tweet(output); }, 4500);
+	setTimeout(function() { $output.removeClass('animating'); tweet(output); }, 8500);
 };
 
 var tweet = function(tweet) {
+
+/// TEMPORARY: Send output directly to Paul instead of tweeting...	
+console.log('Broadcast requested to WebSocket: ' + tweet);
+connection.send('broadcast ' + tweet);
+
+//*/
+
+/*//
+	console.log('Tweet!: ' + tweet);
 	$.ajax('tweet/', {
 		data: {
 			tweet: tweet
 		},
 		method: 'POST',
 		complete: function(response) {
+			console.log('Tweet response:');
 			console.log(response);
 		}
 	});
+//*/
 };
 
 var telephone = function(input) {
@@ -70,8 +87,9 @@ var telephone = function(input) {
 			input: input
 		},
 		complete: function(response) {
-			console.log(response);
-			var result = response.responseText;
+			result = response.responseText;
+			$result.html(result).addClass('animating');
+			//setTimeout(function() { $result.removeClass('animating'); }, 8500);
 			console.log('Telephone: ' + result);
 		}
 	});
@@ -84,10 +102,34 @@ var onError = function() {
 	}, 1500);
 };
 
+var processFinalMessage = function(message) {
+	console.log('Received final message: ' + message);
+	// Remove/stop animation if has already happened/started
+	$result.removeClass('animating');
+	telephone(message);
+};
+
 $(document).ready(function(){
 	$window.on('resize', onWindowResize);
 	$input.on('keydown', onKeydown);//.on('blur', function() { this.focus(); });
 	onWindowResize();
+	$body.on('click', function() { $input.focus(); });
 	$input.focus();
+
+	// Open socket to listen for result
+	connection = new WebSocket('ws://73.20.67.193:8005');
+	
+	connection.onopen = function() {
+		console.log('Socket opened; listening for result');
+	};
+
+	connection.onclose = function() {
+		console.log('Socket closed');
+	};
+
+	connection.onmessage = function(message) {
+		console.log('Received: ' + message.data);
+		processFinalMessage(message.data);
+	};
 });
 

@@ -1,4 +1,4 @@
-body { font-family: sans-serif; margin: auto; overflow: hidden; }
+body { font-family: sans-serif; margin: auto; overflow: hidden; width: 100%; height: 100%; position: fixed; left: 0; top: 0; }
 * { transition: border-color 1s; box-sizing: border-box; }
 #keyboard-input { position: absolute; left:-15000px; top:-15000px; text-align: center; border-width: 2px 0px; border-color: transparent; border-style: solid; font-size: 30pt; background-color: transparent; }
 #keyboard-input:focus { outline: none; }
@@ -6,48 +6,68 @@ body { font-family: sans-serif; margin: auto; overflow: hidden; }
 .transmitting { border-color: green !important; }
 #output { position: absolute; top: -15000px; left: -15000px; width: auto; white-space: nowrap; }
 #output.animating {
-	animation: animateOutput 4s 1;
+	animation: animateOutput 8s 1;
+}
+#result { display: none; position: absolute; top: 50px; left: 0px; width: 100%; font-size: 80pt; text-align: center; } 
+#result.animating {
+	display: block;
+	animation: animateResult 8s 1;
 }
 
+@keyframes animateResult {
+0% {
+	font-size: 0pt;
+}
+100% {
+	font-size: 80pt;
+}
+}
 
 @keyframes animateOutput {
 0% {
-    color: red;
+    color: blue;
     left: -2000px;
-    font-size: 24pt;
+    font-size: 34pt;
     top: 0px;
-    letter-spacing: 2px;
+    letter-spacing: 20px;
     font-weight: 300;
+	transform: rotate(180deg);
 }
-20% {
-    color: green;
-    left: 20%;
-    font-size: 38pt;
+35% {
+    color: gray;
+    left: 10%;
+    font-size: 58pt;
     top: 20%;
-    letter-spacing: 28px;
-    font-weight: 100;
+    letter-spacing: 50px;
+    font-weight: 250;
+	transform: rotate(-80deg);
 }
-40% {
+50% {
     color: orange;
     left: 40%;
-    font-size: 21pt;
+    font-size: 31pt;
     top: 40%;
-    letter-spacing: 4px;
+    letter-spacing: 20px;
     font-weight: 800;
+	transform: rotateY(20deg) rotate(180deg);
 }
 75% {
     color: black;
-    left: 65%;
-    font-size: 30pt;
+    left: -25%;
+    font-size: 40pt;
     top: 70%;
     letter-spacing: 40px;
     font-weight: 400;
+    transform: rotateX(20deg);
 }
 100% {
-    color: gold;
+    color: red;
     top: 50%;
+    font-size: 80pt;
     letter-spacing: 0px;
     font-weight: 100;
     left: 120%;
+    /*transform: rotate(0deg);*/
 }
 }
+
