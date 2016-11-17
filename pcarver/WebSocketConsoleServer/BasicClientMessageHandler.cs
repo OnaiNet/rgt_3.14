@@ -68,18 +68,26 @@ namespace WebSocketConsoleServer
 
 		private async void BroadcastMessageAsync(string message)
 		{
+			string languages = null;
+			bool doTranslate = Convert.ToBoolean(ConfigurationManager.AppSettings["TranslateServerEnabled"]);
 			var text = message.Substring(BroadcastMessagePrefix.Length);
-			string languages = GetLanguages(text, Convert.ToInt32(ConfigurationManager.AppSettings["TranslateCount"]));
-			TranslationItem item = await DoTranslation(text, languages);
+			if (doTranslate)
+			{
+				languages = GetLanguages(text, Convert.ToInt32(ConfigurationManager.AppSettings["TranslateCount"]));
+				TranslationItem item = await DoTranslation(text, languages);
+
+				// only a single translation item so use index [0]
+				text = item.Text[0];
+			}
 
 			if (!string.IsNullOrWhiteSpace(text))
 			{
 				BroadcastGpioSignal();
 				foreach(var client in _sockets)
 				{
-					// only a single translation item so use index [0]
-					Console.WriteLine($"broadcasting to {client.Value.Guid.ToString()} as [{languages}]: " + item.Text[0]);
-					client.Value.WriteString(item.Text[0]);
+					var languageKey = doTranslate ? $" as [{languages}]" : string.Empty;
+					Console.WriteLine($"broadcasting to {client.Value.Guid.ToString()}{languageKey}: " + text);
+					client.Value.WriteString(text);
 				}
 			}
 		}
