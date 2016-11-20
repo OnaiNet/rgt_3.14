@@ -100,9 +100,9 @@ namespace WebSocketConsoleServer
 				return;
 			}
 
+			// broadcast signal to gpio as json
 			string json = File.ReadAllText("BroadcastGpioSignal.json");
-			RgbSimpleAction[] action = JsonConvert.DeserializeObject<RgbSimpleAction[]>(json);
-			await GpioClientUtility.GpioClient.SendActionAsync<RgbSimpleAction[]>(action);
+			await GpioClientUtility.GpioClient.SendActionAsync<dynamic>(JsonConvert.DeserializeObject(json));
 		}
 
 		private async Task<TranslationItem> DoTranslation(string text, string lang)
@@ -128,7 +128,7 @@ namespace WebSocketConsoleServer
 
 		private string GetLanguages(string text, int translationCount)
 		{
-			string sourceLanguage = "en";
+			var sourceLanguage = ConfigurationManager.AppSettings["TranslateServerSourceLanguage"].Trim();
 			string[] destLanguages = new string[] { "es", "fr", "ru", "it", "he", "de", "pl", "el", "tr", "sv", };
 			int seed = text.GetHashCode();
 			Random rnd = new Random(seed);

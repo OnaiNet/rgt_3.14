@@ -13,7 +13,7 @@ namespace GpioCore
 		Low  = PaulTechGuy.RPi.GpioLib.PinValue.Low,
 	}
 
-	public class RgbSimpleAction : GpioActionBase
+	public class RgbSimpleAction : ActionBase
 	{
 		[JsonProperty(PropertyName = "preDelay")]
 		public int PreDelayMs { get; set; }
@@ -27,13 +27,11 @@ namespace GpioCore
 		[JsonProperty(PropertyName = "loops")]
 		public int LoopCount { get; set; }
 
-		[JsonProperty(PropertyName = "pins")]
-		public int[] RgbPins { get; set; } = new int[3];
-
 		[JsonProperty(PropertyName = "startValues")]
 		public PinValue[] RgbStartValues { get; set; } = new PinValue[3];
 
 		[JsonProperty(PropertyName = "endValues")]
 		public PinValue[] RgbEndValues { get; set; } = new PinValue[3];
+
 	}
 }

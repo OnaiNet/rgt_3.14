@@ -1,44 +1,42 @@
 ﻿[
   {
-    "preDelay": 0,
-    "postDelay": 200,
-    "loops": 4,
-    "duration": 400,
-    "pins": [
-      17,
-      18,
-      27
-    ],
-    "startValues": [
-      1,
-      0,
-      0
-    ],
-    "endValues": [
-      0,
-      0,
-      0
-    ]
+    "plugin": "RgbSimpleAction",
+    "instance": "RgbSimpleAction",
+    "data": {
+      "preDelay": 0,
+      "postDelay": 200,
+      "loops": 4,
+      "duration": 400,
+      "startValues": [
+        1,
+        0,
+        0
+      ],
+      "endValues": [
+        0,
+        0,
+        0
+      ]
+    }
   },
   {
-    "preDelay": 0,
-    "postDelay": 0,
-    "loops": 1,
-    "duration": 3000,
-    "pins": [
-      17,
-      18,
-      27
-    ],
-    "startValues": [
-      1,
-      0,
-      0
-    ],
-    "endValues": [
-      1,
-      0,
-      0
-    ]
+    "plugin": "RgbSimpleAction",
+    "instance": "RgbSimpleAction",
+    "data": {
+      "preDelay": 0,
+      "postDelay": 0,
+      "loops": 1,
+      "duration": 3000,
+      "startValues": [
+        1,
+        0,
+        0
+      ],
+      "endValues": [
+        1,
+        0,
+        0
+      ]
+    }
   }
 ]

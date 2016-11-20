@@ -26,13 +26,13 @@ namespace WebSocketConsoleServer
 			var port = Convert.ToInt32(ConfigurationManager.AppSettings["BroadcastServerPort"]);
 
 			CancellationTokenSource cancellation = new CancellationTokenSource();
-			var endpoint = new IPEndPoint(host.ToLower() == "+" ? IPAddress.Any : IPAddress.Parse(host), port);
+			var endpoint = new IPEndPoint(host.Trim().ToLower() == "*" ? IPAddress.Any : IPAddress.Parse(host), port);
 			WebSocketListener server = new WebSocketListener(endpoint);
 			var rfc6455 = new vtortola.WebSockets.Rfc6455.WebSocketFactoryRfc6455(server);
 			server.Standards.RegisterStandard(rfc6455);
 			server.Start();
 
-			Log("Echo Server started at " + endpoint.ToString());
+			Console.WriteLine($"{this.GetType().Namespace} on host {endpoint.ToString()}");
 
 			var task = Task.Run(() => AcceptWebSocketClientsAsync(server, cancellation.Token));
 
@@ -76,9 +76,9 @@ namespace WebSocketConsoleServer
 				while (ws.IsConnected && !cancellation.IsCancellationRequested)
 				{
 					String msg = await ws.ReadStringAsync(cancellation).ConfigureAwait(false);
-					Console.WriteLine("Received: " + msg);
-					if (msg != null)
+					if (!string.IsNullOrWhiteSpace(msg))
 					{
+						Console.WriteLine("Received: " + msg);
 						IClientMessageHandler messageHandler = new BasicClientMessageHandler(_connectedSockets);
 						if (messageHandler.HandleMessage(ws, msg))
 						{

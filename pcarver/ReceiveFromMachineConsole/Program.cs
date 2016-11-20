@@ -136,8 +136,7 @@ namespace ReceiveFromMachineConsole
 			}
 
 			string json = File.ReadAllText("BroadcastGpioSignal.json");
-			RgbSimpleAction[] action = JsonConvert.DeserializeObject<RgbSimpleAction[]>(json);
-			await GpioClientUtility.GpioClient.SendActionAsync<RgbSimpleAction[]>(action);
+			await GpioClientUtility.GpioClient.SendActionAsync<dynamic>(JsonConvert.DeserializeObject(json));
 		}
 	}
 }

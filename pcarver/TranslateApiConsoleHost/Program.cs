@@ -24,7 +24,7 @@ namespace TranslateApiConsoleHost
 			string baseAddress = $"http://{host}:{port}";
 			using (WebApp.Start<Startup>(url: baseAddress))
 			{
-				Console.WriteLine(this.GetType().Namespace);
+				Console.WriteLine($"{this.GetType().Namespace} on host {baseAddress}");
 				Console.WriteLine("Press Enter to quit");
 				Console.ReadLine();
 			}

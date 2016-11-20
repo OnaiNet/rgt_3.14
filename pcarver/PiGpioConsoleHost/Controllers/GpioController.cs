@@ -18,24 +18,34 @@ namespace PiGpioConsoleHost.Controllers
 	{
 		[HttpPost]
 		[Route("~/gpio")]
-		public async Task<IHttpActionResult> PostRgbSimpleAction(RgbSimpleAction[] actions)
+		public async Task<IHttpActionResult> PostRgbSimpleAction(dynamic[] actions)
 		{
 			if (actions == null) // invalid json
 			{
 				return BadRequest("Invalid actions (check JSON format)");
 			}
 
-			await DoAction(actions);
-			return Ok();
+			try
+			{
+				await DoAction(actions);
+				return Ok();
+			}
+			catch(Exception ex)
+			{
+				return BadRequest(ex.Message);
+			}
 		}
 
-		private async Task DoAction(RgbSimpleAction[] actions)
+		private async Task DoAction(dynamic[] actions)
 		{
 			await Task.Run(() =>
 			{
-				foreach (var action in actions)
+				foreach (var json in actions)
 				{
-					GpioActionManager.Instance.Enqueue(action);
+					string host = Request.GetOwinContext().Request.RemoteIpAddress;
+					ActionBase obj = ActionBase.JsonCreate(json);
+					ActionQueueItem item = new ActionQueueItem (obj, obj.InstanceName, host);
+					ActionQueueManager.Instance.Enqueue(item);
 				}
 			});
 		}

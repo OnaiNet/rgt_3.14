@@ -50,7 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GpioActionBase.cs" />
+    <Compile Include="ActionBase.cs" />
     <Compile Include="RgbSimpleAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
