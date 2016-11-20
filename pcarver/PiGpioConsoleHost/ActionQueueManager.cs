@@ -23,6 +23,7 @@ namespace PiGpioConsoleHost
 		{
 			{ nameof(RgbSimpleAction), new HandlerRgbSimpleAction() },
 			{ nameof(LedSimpleAction), new HandlerLedSimpleAction() },
+			{ nameof(BuzzerSimpleAction), new HandlerBuzzerSimpleAction() },
 		};
 
 		// private to prevent direct instantiation.

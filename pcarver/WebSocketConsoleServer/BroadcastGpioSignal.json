@@ -4,31 +4,10 @@
     "instance": "RgbSimpleAction",
     "data": {
       "preDelay": 0,
-      "postDelay": 200,
-      "loops": 4,
-      "startDuration": 500,
-      "endDuration": 250,
-      "startValues": [
-        0,
-        1,
-        0
-      ],
-      "endValues": [
-        0,
-        0,
-        0
-      ]
-    }
-  },
-  {
-    "plugin": "RgbSimpleAction",
-    "instance": "RgbSimpleAction",
-    "data": {
-      "preDelay": 0,
       "postDelay": 0,
-      "loops": 1,
-      "startDuration": 500,
-      "endDuration": 250,
+      "loops": 3,
+      "startDuration": 2000,
+      "endDuration": 500,
       "startValues": [
         0,
         1,

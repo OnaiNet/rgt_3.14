@@ -90,6 +90,7 @@
     <Compile Include="ActionQueueItem.cs" />
     <Compile Include="Controllers\GpioController.cs" />
     <Compile Include="ActionQueueManager.cs" />
+    <Compile Include="HandlerBuzzerSimpleAction.cs" />
     <Compile Include="HandlerLedSimpleAction.cs" />
     <Compile Include="HandlerRgbSimpleAction.cs" />
     <Compile Include="IActionHandler.cs" />
@@ -99,6 +100,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="instance\BuzzerSimpleActionConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="instance\LedSimpleActionConfig.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

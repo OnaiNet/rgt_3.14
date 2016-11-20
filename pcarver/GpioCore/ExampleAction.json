@@ -1,36 +1,49 @@
 ﻿[
-   {
-      "plugin":"RgbSimpleAction",
-      "instance":"RgbSimpleAction",
-      "data":{
-         "preDelay":0,
-         "postDelay":1200,
-         "loops":4,
-         "startDuration":3000,
-         "endDuration":1000,
-         "startValues":[
-            1,
-            0,
-            0
-         ],
-        "endValues": [
-          0,
-          0,
-          0
-        ]
-      }
-   },
-   {
-      "plugin":"LedSimpleAction",
-      "instance":"LedSimpleAction",
-      "data":{
-         "preDelay":0,
-         "postDelay":1200,
-         "loops":4,
-         "startDuration":3000,
-         "endDuration":1000,
-         "startValue":1,
-         "endValue":0
-      }
-   }
+  {
+    "plugin": "RgbSimpleAction",
+    "instance": "RgbSimpleAction",
+    "data": {
+      "preDelay": 0,
+      "postDelay": 1200,
+      "loops": 4,
+      "startDuration": 3000,
+      "endDuration": 1000,
+      "startValues": [
+        1,
+        0,
+        0
+      ],
+      "endValues": [
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "plugin": "LedSimpleAction",
+    "instance": "LedSimpleAction",
+    "data": {
+      "preDelay": 0,
+      "postDelay": 1200,
+      "loops": 4,
+      "startDuration": 3000,
+      "endDuration": 1000,
+      "startValue": 1,
+      "endValue": 0
+    }
+  },
+  {
+    "plugin": "BuzzerSimpleAction",
+    "instance": "BuzzerSimpleAction",
+    "data": {
+      "preDelay": 0,
+      "postDelay": 0,
+      "loops": 15,
+      "startDuration": 500,
+      "endDuration": 200,
+      "startValue": 1,
+      "endValue": 0
+    }
+  }
 ]
