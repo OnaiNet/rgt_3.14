@@ -34,9 +34,9 @@ namespace PiGpioConsoleHost
 						pins[i].Output((PaulTechGuy.RPi.GpioLib.PinValue)action.RgbStartValues[i]);
 					}
 
-					if (action.DurationMs > 0)
+					if (action.StartDurationMs > 0)
 					{
-						Thread.Sleep(action.DurationMs);
+						Thread.Sleep(action.StartDurationMs);
 					}
 
 					for (int i = 0; i < pins.Length; ++i)
@@ -48,10 +48,15 @@ namespace PiGpioConsoleHost
 						}
 					}
 
-					if (action.PostDelayMs > 0)
+					if (action.EndDurationMs > 0)
 					{
-						Thread.Sleep(action.PostDelayMs);
+						Thread.Sleep(action.EndDurationMs);
 					}
+				}
+
+				if (action.PostDelayMs > 0)
+				{
+					Thread.Sleep(action.PostDelayMs);
 				}
 			}
 		}

@@ -29,6 +29,8 @@ namespace PiGpioConsoleHost
 				var typeName = Path.GetFileNameWithoutExtension(filename);
 				typeName = typeName.Substring(0, typeName.Length - "Config".Length);
 				_configItems.Add(typeName, config);
+
+				Console.WriteLine($"{this.GetType().Name} added configuration: {typeName}");
 			}
 		}
 

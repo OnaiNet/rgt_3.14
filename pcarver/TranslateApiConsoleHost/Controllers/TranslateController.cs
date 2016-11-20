@@ -47,6 +47,10 @@ namespace TranslateApiConsoleHost.Controllers
 				}
 			}
 
+			var uri = Request.GetOwinContext().Request.Uri;
+			var host = Request.GetOwinContext().Request.RemoteIpAddress;
+			Console.WriteLine($" Translated uri: {uri}");
+			Console.WriteLine($"Translated from: {host}");
 			Console.WriteLine($"Translated lang: {lang}");
 			Console.WriteLine($"Translated from: {text}");
 			Console.WriteLine($"  Translated to: {item.Text[0]}");

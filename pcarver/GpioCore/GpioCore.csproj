@@ -51,12 +51,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionBase.cs" />
+    <Compile Include="LedSimpleAction.cs" />
+    <Compile Include="PinValue.cs" />
     <Compile Include="RgbSimpleAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="RgbSimpleAction.json" />
+    <None Include="ExampleAction.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="PaulTechGuy.RPi.GpioLib.dll" />

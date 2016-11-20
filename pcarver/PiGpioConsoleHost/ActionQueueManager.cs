@@ -22,6 +22,7 @@ namespace PiGpioConsoleHost
 		private static Dictionary<string, IActionHandler> _actionHandlers = new Dictionary<string, IActionHandler>
 		{
 			{ nameof(RgbSimpleAction), new HandlerRgbSimpleAction() },
+			{ nameof(LedSimpleAction), new HandlerLedSimpleAction() },
 		};
 
 		// private to prevent direct instantiation.
@@ -75,9 +76,10 @@ namespace PiGpioConsoleHost
 
 		private void Process(ActionQueueItem item)
 		{
-			Console.WriteLine($"Handling: Action {item.Action.PluginName}, Instance: {item.Action.InstanceName} ({item.Host})");
+			Console.WriteLine($"Start action {item.Action.PluginName}, Instance: {item.Action.InstanceName} ({item.Host})");
 			IActionHandler handler = _actionHandlers[item.InstanceName];
 			handler.Action(item.Action, _configManager[item.InstanceName]);
+			Console.WriteLine($"End action {item.Action.PluginName}, Instance: {item.Action.InstanceName} ({item.Host})");
 		}
 
 		public void Stop()

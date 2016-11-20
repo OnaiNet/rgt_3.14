@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GpioCore
 {
-	public class RgbSimpleAction : ActionBase
+	public class LedSimpleAction : ActionBase
 	{
 		[JsonProperty(PropertyName = "preDelay")]
 		public int PreDelayMs { get; set; } = 0;
@@ -24,11 +24,11 @@ namespace GpioCore
 		[JsonProperty(PropertyName = "loops")]
 		public int LoopCount { get; set; } = 0;
 
-		[JsonProperty(PropertyName = "startValues")]
-		public PinValue[] RgbStartValues { get; set; } = new PinValue[3] { PinValue.Low, PinValue.Low, PinValue.Low };
+		[JsonProperty(PropertyName = "startValue")]
+		public PinValue LedStartValue { get; set; } = PinValue.Low;
 
-		[JsonProperty(PropertyName = "endValues")]
-		public PinValue[] RgbEndValues { get; set; } = new PinValue[3] { PinValue.Low, PinValue.Low, PinValue.Low };
+		[JsonProperty(PropertyName = "endValue")]
+		public PinValue LedEndValue { get; set; } = PinValue.Low;
 
 	}
 }

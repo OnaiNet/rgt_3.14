@@ -78,7 +78,8 @@ namespace WebSocketConsoleServer
 					String msg = await ws.ReadStringAsync(cancellation).ConfigureAwait(false);
 					if (!string.IsNullOrWhiteSpace(msg))
 					{
-						Console.WriteLine("Received: " + msg);
+						string remoteHost = ws.RemoteEndpoint.ToString();
+						Console.WriteLine($"Received: {msg} ({remoteHost})");
 						IClientMessageHandler messageHandler = new BasicClientMessageHandler(_connectedSockets);
 						if (messageHandler.HandleMessage(ws, msg))
 						{
