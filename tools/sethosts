@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# RUN AS ROOT / use sudp
+# RUN AS ROOT / use sudo
 
 if [ ! -e /etc/hosts.orig ]; then
 	cp /etc/hosts /etc/hosts.orig
