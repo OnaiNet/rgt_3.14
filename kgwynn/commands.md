@@ -520,14 +520,98 @@
   520  git add getip
   521  git commit -m "Updated getip to show either ethernet or wifi IP" && git push
   522  sudo raspi-config
-  523  which vi
-  524  which vim
-  525  vim
-  526  cd Development/rgt_3.14/
-  527  tools/getip
-  528  sudo iwlist wlan0 scan
-  529  sudo vi /etc/wpa_supplicant/wpa_supplicant.conf 
-  530  ll
-  531  tools/getip > kgwynn/ip
-  532  git status
-  533  history > kgwynn/commands.md 
+  523  hostname
+  524  cat /etc/hosts
+  525  cd Development/
+  526  ll
+  527  cd rgt_3.14/
+  528  git pull
+  529  ll
+  530  sudo tools/sethosts
+  531  cat /etc/hosts
+  532  ll
+  533  ping rgt_kgwynn
+  534  ll
+  535  cd tools
+  536  ll
+  537  cat /etc/hosts
+  538  hostname
+  539  hostname --help
+  540  dir
+  541  cat sethosts 
+  542  vi sethosts 
+  543  git add sethosts && git commit -m "typo" && git push
+  544  ll
+  545  ifconfig
+  546  ll
+  547  cd ..
+  548  ll
+  549  cd pcarver/
+  550  ll
+  551  cd ..
+  552  ll
+  553  cd kgwynn
+  554  ll
+  555  cd webroot/
+  556  ll
+  557  vi js/main.js 
+  558  vi
+  559  jobs
+  560  vi js/main.js 
+  561  jobs
+  562  ll
+  563  vi js/main.js 
+  564  vi tweet/index.php 
+  565  jobs
+  566  fg 1
+  567  jobs
+  568  fg
+  569  jobs
+  570  vi js/main.js 
+  571  jobs
+  572  git status
+  573  git diff js/main.js
+  574  git diff tweet/index.php
+  575  git status
+  576  git add js/main.js
+  577  git add tweet/index.php 
+  578  git commit -m "Reconfiguring to tweet again, and now tweeting results to #rgt_results"
+  579  git push
+  580  ll
+  581  vi /etc/network/interfaces
+  582  iwconfig
+  583  ll /etc/wpa_supplicant/
+  584  cat /etc/wpa_supplicant/wpa_supplicant.conf 
+  585  passwd
+  586  cat /etc/user
+  587  cat /etc/passwd
+  588  cat /etc/passwd | grep home
+  589  sudo vi /etc/network/interfaces
+  590  jobs
+  591  sudo vi /etc/wpa_supplicant/wpa_supplicant.conf 
+  592  sudo cp /etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf.smothered-burrito
+  593  fg
+  594  shutdown --?
+  595  shutdown --help
+  596  shutdown -r
+  597  sudo vi /etc/network/interfaces
+  598  ifconfig
+  599  iwconfig
+  600  wpa_status
+  601  wpa_gui
+  602  sudo wpa_cli status
+  603  sudo wpa_cli help
+  604  sudo wpa_cli reauthenticate
+  605  sudo wpa_cli help
+  606  sudo wpa_cli status
+  607  sudo wpa_cli flush
+  608  sudo wpa_cli scan
+  609  sudo wpa_cli disconnect
+  610  sudo wpa_cli reconfigure
+  611  sudo wpa_cli reconnect
+  612  sudo wpa_cli status
+  613  ifconfig
+  614  cd ..
+  615  ll
+  616  history | head
+  617  history > commands.md 
