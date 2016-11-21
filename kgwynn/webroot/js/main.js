@@ -55,18 +55,25 @@ var animateInput = function() {
 	console.log('Animating the input...');
 	$output.addClass('animating');
 	$output.text(output);
-	setTimeout(function() { $output.removeClass('animating'); tweet(output); }, 8500);
+	setTimeout(function() { 
+		$output.removeClass('animating');
+		tweet(output + ' #rgt_output');
+		broadcast(output);
+	}, 8500);
 };
 
+/**
+ * Send output via WebSocket connection
+ */
+var broadcast = function(message) {
+	console.log('Broadcast requested to WebSocket: ' + message);
+	connection.send('broadcast ' + message);
+};
+
+/**
+ * Tweet output
+ */
 var tweet = function(tweet) {
-
-/// TEMPORARY: Send output directly to Paul instead of tweeting...	
-console.log('Broadcast requested to WebSocket: ' + tweet);
-connection.send('broadcast ' + tweet);
-
-//*/
-
-/*//
 	console.log('Tweet!: ' + tweet);
 	$.ajax('tweet/', {
 		data: {
@@ -78,7 +85,6 @@ connection.send('broadcast ' + tweet);
 			console.log(response);
 		}
 	});
-//*/
 };
 
 var telephone = function(input) {
@@ -107,6 +113,7 @@ var processFinalMessage = function(message) {
 	// Remove/stop animation if has already happened/started
 	$result.removeClass('animating');
 	telephone(message);
+	tweet(message + ' #rgt_results');
 };
 
 $(document).ready(function(){
