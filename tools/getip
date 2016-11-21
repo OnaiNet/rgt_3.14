@@ -1,3 +1,25 @@
 #!/bin/bash
-/sbin/ifconfig wlan0 | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}'
+
+# Get ethernet IP
+eth0ip=`/sbin/ifconfig eth0 | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}'`
+
+# If we got an ethernet IP, echo it and exit success
+if [ "" != "${eth0ip}" ]; then
+	echo $eth0ip
+	exit 0
+fi
+
+# Get Wifi IP
+wlanip=`/sbin/ifconfig wlan0 | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}'`
+
+# If we didn't get a Wifi IP, we didn't find any IP
+if [ "" == "${wlanip}" ]; then
+	# Echo error to stderr
+	echo "Could not find IP on wlan0 (Wifi) or eth0 (Ethernet)" 1>&2
+	exit 1
+fi
+
+# Otherwise echo the Wifi IP
+echo $wlanip
+exit 0
 
