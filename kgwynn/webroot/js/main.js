@@ -124,7 +124,7 @@ $(document).ready(function(){
 	$input.focus();
 
 	// Open socket to listen for result
-	connection = new WebSocket('ws://73.20.67.193:8005');
+	connection = new WebSocket('ws://rgtpcarver:8005');
 	
 	connection.onopen = function() {
 		console.log('Socket opened; listening for result');
