@@ -615,3 +615,34 @@
   615  ll
   616  history | head
   617  history > commands.md 
+  618  cd ..
+  619  ll
+  620  tools/getip
+  621  vi tools/getip
+  622  tools/getip
+  623  git status
+  624  git add tools/getip && git commit -m "Updated getip to show Wifi IP first, if both are found"
+  625  ll
+  626  git status
+  627  git add kgwynn/commands.md && git commit -m "Updated commands.md -- after figuring out Wifi connection to 'CHG' network"
+  628  sudo vi /etc/network/interfaces
+  629  sudo vi /etc/wpa_supplicant/wpa_supplicant.conf 
+  630  jobs
+  631  exit
+  632  pwd
+  633  exit
+  634  ll
+  635  cd Dev
+  636  cd Development/
+  637  ll
+  638  cd rgt_3.14/
+  639  tools/getip
+  640  ifconfig
+  641  history | less
+  642  sudo apt-get update
+  643  sudo apt-get upgrade
+  644  ll
+  645  cd kgwynn
+  646  ll
+  647  history | head
+  648  history > commands.md 
