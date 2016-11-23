@@ -11,8 +11,8 @@ if (empty($_POST)) {
 }
 
 
-$tweet_suffix = ' #rgt_output';
-$tweet = trim(substr($_POST['tweet'], 0, 140 - strlen($tweet_suffix))) . $tweet_suffix;
+//$tweet_suffix = ' #rgt_output'; // now allowing caller to send exactly what it wants (2016-11-21 kag)
+$tweet = trim(substr($_POST['tweet'], 0, 140 - strlen($tweet_suffix)));
 
 require_once('../../bower_components/codebird-php/src/codebird.php');
 

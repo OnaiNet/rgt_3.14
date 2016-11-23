@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# RUN AS ROOT / use sudp
+# RUN AS ROOT / use sudo
 
 if [ ! -e /etc/hosts.orig ]; then
 	cp /etc/hosts /etc/hosts.orig
@@ -13,7 +13,7 @@ echo "# RGT_3.14 sethosts (`date +%Y%m%d-%H%M`):" >> /etc/hosts
 
 for d in */ ; do
 	if [ -e "$d/ip" ]; then
-		echo "`cat $d/ip` rgt_${d%?}" >> /etc/hosts
+		echo "`cat $d/ip` ${d%?}.rgt" >> /etc/hosts
 	fi
 done
 
