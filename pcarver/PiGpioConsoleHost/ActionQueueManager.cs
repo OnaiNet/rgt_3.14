@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -25,6 +26,9 @@ namespace PiGpioConsoleHost
 			{ nameof(LedSimpleAction), new HandlerLedSimpleAction() },
 			{ nameof(BuzzerSimpleAction), new HandlerBuzzerSimpleAction() },
 		};
+		// do we allow threaded actions?
+		private bool _actionThreading = Convert.ToBoolean(ConfigurationManager.AppSettings["AllowActionThreading"]);
+
 
 		// private to prevent direct instantiation.
 		private ActionQueueManager()
@@ -70,17 +74,26 @@ namespace PiGpioConsoleHost
 
 				if (item != null)
 				{
-					Process(item);
+					bool doThreaded = _actionThreading && item.Action.IsThreaded;
+					if (doThreaded)
+					{
+						Task.Run(() => Process(item, doThreaded));
+					}
+					else
+					{
+						Process(item, doThreaded);
+					}
 				}
 			}
 		}
 
-		private void Process(ActionQueueItem item)
+		private void Process(ActionQueueItem item, bool isThreaded)
 		{
-			Console.WriteLine($"Start action {item.Action.PluginName}, Instance: {item.Action.InstanceName} ({item.Host})");
+			var threaded = isThreaded ? " thread" : string.Empty;
+			Console.WriteLine($"Start{threaded} action {item.Action.PluginName}, Instance: {item.Action.InstanceName} ({item.Host})");
 			IActionHandler handler = _actionHandlers[item.InstanceName];
 			handler.Action(item.Action, _configManager[item.InstanceName]);
-			Console.WriteLine($"End action {item.Action.PluginName}, Instance: {item.Action.InstanceName} ({item.Host})");
+			Console.WriteLine($"End {threaded} action {item.Action.PluginName}, Instance: {item.Action.InstanceName} ({item.Host})");
 		}
 
 		public void Stop()

@@ -63,10 +63,6 @@
       <Project>{a3140386-1711-410c-97f8-7b593d9f53f0}</Project>
       <Name>GpioClientUtility</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GpioCore\GpioCore.csproj">
-      <Project>{57fc566d-d931-4a12-80b8-5c9c13d87253}</Project>
-      <Name>GpioCore</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

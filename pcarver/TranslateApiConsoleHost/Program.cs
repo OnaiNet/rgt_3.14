@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace TranslateApiConsoleHost
@@ -25,8 +26,15 @@ namespace TranslateApiConsoleHost
 			using (WebApp.Start<Startup>(url: baseAddress))
 			{
 				Console.WriteLine($"{this.GetType().Namespace} on host {baseAddress}");
-				Console.WriteLine("Press Enter to quit");
-				Console.ReadLine();
+				Console.WriteLine("Press Ctrl-C to quit");
+
+				var exitEvent = new ManualResetEvent(false);
+				Console.CancelKeyPress += (sender, eventArgs) =>
+				{
+					eventArgs.Cancel = true;
+					exitEvent.Set();
+				};
+				exitEvent.WaitOne();
 			}
 		}
 	}

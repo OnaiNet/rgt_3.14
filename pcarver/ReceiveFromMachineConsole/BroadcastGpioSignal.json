@@ -2,14 +2,51 @@
   {
     "plugin": "BuzzerSimpleAction",
     "instance": "BuzzerSimpleAction",
+    "threaded": true,
     "data": {
       "preDelay": 0,
       "postDelay": 0,
       "loops": 4,
-      "startDuration": 500,
-      "endDuration": 200,
+      "startDuration": 1000,
+      "endDuration": 250,
       "startValue": 1,
       "endValue": 0
+    }
+  },
+  {
+    "plugin": "LedSimpleAction",
+    "instance": "LedSimpleAction",
+    "threaded": true,
+    "data": {
+      "preDelay": 0,
+      "postDelay": 0,
+      "loops": 4,
+      "startDuration": 1000,
+      "endDuration": 250,
+      "startValue": 1,
+      "endValue": 0
+    }
+  },
+  {
+    "plugin": "RgbSimpleAction",
+    "instance": "RgbSimpleAction",
+    "threaded": false,
+    "data": {
+      "preDelay": 0,
+      "postDelay": 1000,
+      "loops": 4,
+      "startDuration": 1000,
+      "endDuration": 250,
+      "startValues": [
+        1,
+        0,
+        0
+      ],
+      "endValues": [
+        0,
+        0,
+        0
+      ]
     }
   }
 ]

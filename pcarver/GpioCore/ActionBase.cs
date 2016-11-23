@@ -15,6 +15,9 @@ namespace GpioCore
 		[JsonProperty(PropertyName = "instance")]
 		public string InstanceName { get; set; }
 
+		[JsonProperty(PropertyName = "threaded")]
+		public bool IsThreaded { get; set; } = false;
+
 		public static ActionBase JsonCreate(dynamic json)
 		{
 			ActionBase action = null;
@@ -28,8 +31,10 @@ namespace GpioCore
 				throw new ApplicationException($"Invalid plugin: {json.plugin}");
 			}
 
+			// any case properties
 			action.PluginName = json.plugin;
 			action.InstanceName = json.instance;
+			action.IsThreaded = json.threaded;
 
 			return action;
 		}

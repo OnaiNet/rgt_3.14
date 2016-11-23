@@ -1,7 +1,22 @@
 ﻿[
   {
+    "plugin": "BuzzerSimpleAction",
+    "instance": "BuzzerSimpleAction",
+    "threaded": true,
+    "data": {
+      "preDelay": 0,
+      "postDelay": 0,
+      "loops": 3,
+      "startDuration": 2000,
+      "endDuration": 500,
+      "startValue": 1,
+      "endValue": 0
+    }
+  },
+  {
     "plugin": "RgbSimpleAction",
     "instance": "RgbSimpleAction",
+    "threaded": false,
     "data": {
       "preDelay": 0,
       "postDelay": 0,

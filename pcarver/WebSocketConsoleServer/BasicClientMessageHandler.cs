@@ -1,5 +1,4 @@
-﻿using GpioCore;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -82,13 +81,13 @@ namespace WebSocketConsoleServer
 
 			if (!string.IsNullOrWhiteSpace(text))
 			{
-				BroadcastGpioSignal();
 				foreach(var client in _sockets)
 				{
 					var languageKey = doTranslate ? $" as [{languages}]" : string.Empty;
 					Console.WriteLine($"broadcasting to {client.Value.Guid.ToString()}{languageKey}: " + text);
 					client.Value.WriteString(text);
 				}
+				BroadcastGpioSignal();
 			}
 		}
 
