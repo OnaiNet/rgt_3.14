@@ -3,6 +3,7 @@
     "plugin": "RgbSimpleAction",
     "instance": "RgbSimpleAction",
     "threaded": true,
+    "guid": "9a6a81eb-27b3-454e-9351-0f942e0d109a",
     "data": {
       "preDelay": 0,
       "postDelay": 1200,
@@ -25,6 +26,7 @@
     "plugin": "LedSimpleAction",
     "instance": "LedSimpleAction",
     "threaded": true,
+    "guid": "9a6a81eb-27b3-454e-9351-0f942e0d109a",
     "data": {
       "preDelay": 0,
       "postDelay": 1200,
@@ -39,10 +41,11 @@
     "plugin": "BuzzerSimpleAction",
     "instance": "BuzzerSimpleAction",
     "threaded": true,
+    "guid": "9a6a81eb-27b3-454e-9351-0f942e0d109a",
     "data": {
       "preDelay": 0,
       "postDelay": 0,
-      "loops": 15,
+      "loops": 5,
       "startDuration": 500,
       "endDuration": 200,
       "startValue": 1,
