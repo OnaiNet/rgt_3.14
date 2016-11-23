@@ -2,6 +2,7 @@
   {
     "plugin": "RgbSimpleAction",
     "instance": "RgbSimpleAction",
+    "threaded": true,
     "data": {
       "preDelay": 0,
       "postDelay": 1200,
@@ -23,6 +24,7 @@
   {
     "plugin": "LedSimpleAction",
     "instance": "LedSimpleAction",
+    "threaded": true,
     "data": {
       "preDelay": 0,
       "postDelay": 1200,
@@ -36,6 +38,7 @@
   {
     "plugin": "BuzzerSimpleAction",
     "instance": "BuzzerSimpleAction",
+    "threaded": true,
     "data": {
       "preDelay": 0,
       "postDelay": 0,

@@ -1,5 +1,4 @@
-﻿using GpioCore;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -37,8 +36,8 @@ namespace ReceiveFromMachineConsole
 			while (!done)
 			{
 				Console.WriteLine(@"Menu
-    receive TEXT: Simulate receive from previous machine and broadcast TEXT
-            quit: Quit the program");
+	 receive TEXT: Simulate receive from previous machine and broadcast TEXT
+				quit: Quit the program");
 				Console.Write("\nChoice: ");
 				var choice = Console.ReadLine().Trim().ToLower();
 				if (choice.StartsWith("receive "))

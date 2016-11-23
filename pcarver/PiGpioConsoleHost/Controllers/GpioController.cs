@@ -38,6 +38,7 @@ namespace PiGpioConsoleHost.Controllers
 
 		private async Task DoAction(dynamic[] actions)
 		{
+			Console.WriteLine($"Received {actions.Length} action(s); queuing...");
 			await Task.Run(() =>
 			{
 				foreach (var json in actions)

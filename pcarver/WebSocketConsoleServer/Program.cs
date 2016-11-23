@@ -33,11 +33,18 @@ namespace WebSocketConsoleServer
 			server.Start();
 
 			Console.WriteLine($"{this.GetType().Namespace} on host {endpoint.ToString()}");
-
 			var task = Task.Run(() => AcceptWebSocketClientsAsync(server, cancellation.Token));
 
-			Console.ReadKey(true);
-			Log("Server stopping");
+			Console.WriteLine("Press Ctrl-C to quit");
+			var exitEvent = new ManualResetEvent(false);
+			Console.CancelKeyPress += (sender, eventArgs) =>
+			{
+				eventArgs.Cancel = true;
+				exitEvent.Set();
+			};
+			exitEvent.WaitOne();
+
+			// cancel socket server and wait for completion
 			cancellation.Cancel();
 			task.Wait();
 		}
