@@ -9,9 +9,6 @@ namespace GpioCore
 {
 	public class ActionBase
 	{
-		[JsonProperty(PropertyName = "$type", Required = Required.Always)]
-		public string ClassType { get; set; }
-
 		[JsonProperty(PropertyName = "instance", Required = Required.Always)]
 		public string InstanceName { get; set; }
 

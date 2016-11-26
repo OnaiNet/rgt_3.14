@@ -140,7 +140,7 @@ namespace PiGpioConsoleHost
 				var simulated = _actionSimulation ? " (simulated)" : string.Empty;
 
 				var threaded = isThreaded ? " thread" : string.Empty;
-				Console.WriteLine($"Start{threaded}{simulated} action {item.Action.ClassType}, Instance: {item.Action.InstanceName} ({item.Host})");
+				Console.WriteLine($"Start{threaded}{simulated} action {item.Action.GetType().Name}, Instance: {item.Action.InstanceName} ({item.Host})");
 
 				if (!_actionSimulation)
 				{
@@ -148,7 +148,7 @@ namespace PiGpioConsoleHost
 					handler.Action(item.Action, _configManager[item.InstanceName]);
 				}
 
-				Console.WriteLine($"End{threaded}{simulated} action {item.Action.ClassType}, Instance: {item.Action.InstanceName} ({item.Host})");
+				Console.WriteLine($"End{threaded}{simulated} action {item.Action.GetType().Name}, Instance: {item.Action.InstanceName} ({item.Host})");
 			}
 			catch (Exception ex)
 			{
