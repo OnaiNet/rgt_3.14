@@ -14,7 +14,8 @@ namespace PiGpioConsoleHost
 {
 	public class ActionQueueManager
 	{
-		private static readonly BlockingCollection<ActionQueueItem> _queue = new BlockingCollection<ActionQueueItem>();
+		private static readonly ConcurrentDictionary<Guid, ActionQueueItem> _actionThreads = new ConcurrentDictionary<Guid, ActionQueueItem>();
+		private static readonly BlockingCollection<ActionQueueItem> _actionQueue = new BlockingCollection<ActionQueueItem>();
 		private static readonly Lazy<ActionQueueManager> _instance
 			= new Lazy<ActionQueueManager>(() => new ActionQueueManager());
 		private static CancellationTokenSource _cancellationSource = null;
@@ -26,9 +27,12 @@ namespace PiGpioConsoleHost
 			{ nameof(LedSimpleAction), new HandlerLedSimpleAction() },
 			{ nameof(BuzzerSimpleAction), new HandlerBuzzerSimpleAction() },
 		};
-		// do we allow threaded actions?
-		private bool _actionThreading = Convert.ToBoolean(ConfigurationManager.AppSettings["AllowActionThreading"]);
 
+		// do we allow threaded actions?
+		private bool _actionThreading = Convert.ToBoolean(ConfigurationManager.AppSettings["ActionAllowThreading"]);
+
+		// do we allow threaded actions?
+		private bool _actionSimulation = Convert.ToBoolean(ConfigurationManager.AppSettings["ActionSimulateEnabled"]);
 
 		// private to prevent direct instantiation.
 		private ActionQueueManager()
@@ -57,7 +61,7 @@ namespace PiGpioConsoleHost
 
 		private void ProcessQueue(CancellationToken cancelToken)
 		{
-			while (!_queue.IsCompleted && !cancelToken.IsCancellationRequested)
+			while (!_actionQueue.IsCompleted && !cancelToken.IsCancellationRequested)
 			{
 				ActionQueueItem item = null;
 				// Blocks if number.Count == 0
@@ -68,16 +72,58 @@ namespace PiGpioConsoleHost
 				// loop will break on the next iteration.
 				try
 				{
-					item = _queue.Take();
+					item = _actionQueue.Take();
 				}
-				catch (InvalidOperationException) { }
+				catch (InvalidOperationException)
+				{
+					// when we shut down, we expect this exception is the queue is complete; but
+					// if not complete...
+					if (!_actionQueue.IsCompleted)
+					{
+						throw;
+					}
+				}
 
 				if (item != null)
 				{
-					bool doThreaded = _actionThreading && item.Action.IsThreaded;
+					bool doThreaded = _actionThreading && item.Action.ThreadId != Guid.Empty;
 					if (doThreaded)
 					{
-						Task.Run(() => Process(item, doThreaded));
+						try
+						{
+							if (!_actionThreads.TryAdd(item.Action.ThreadId, item))
+							{
+								Error($"Duplicate threadId found; ignoring action.  ID: {item.Action.ThreadId.ToString()}");
+								continue;
+							}
+							else
+							{
+								Log($"Adding thread id: {item.Action.ThreadId.ToString()}");
+							}
+
+							Task.Run(() => Process(item, doThreaded))
+								.ContinueWith(task =>
+								{
+									if (task.IsFaulted)
+									{
+										Error(task.Exception.ToString());
+									}
+
+									ActionQueueItem temp;
+									if (!_actionThreads.TryRemove(item.Action.ThreadId, out temp))
+									{
+										Error($"Unable to remove action thread by thread id: {item.Action.ThreadId.ToString()}");
+									}
+									else
+									{
+										Log($"Removing thread id: {item.Action.ThreadId.ToString()}");
+									}
+
+								});
+						}
+						finally
+						{
+						}
 					}
 					else
 					{
@@ -89,11 +135,25 @@ namespace PiGpioConsoleHost
 
 		private void Process(ActionQueueItem item, bool isThreaded)
 		{
-			var threaded = isThreaded ? " thread" : string.Empty;
-			Console.WriteLine($"Start{threaded} action {item.Action.PluginName}, Instance: {item.Action.InstanceName} ({item.Host})");
-			IActionHandler handler = _actionHandlers[item.InstanceName];
-			handler.Action(item.Action, _configManager[item.InstanceName]);
-			Console.WriteLine($"End {threaded} action {item.Action.PluginName}, Instance: {item.Action.InstanceName} ({item.Host})");
+			try
+			{
+				var simulated = _actionSimulation ? " (simulated)" : string.Empty;
+
+				var threaded = isThreaded ? " thread" : string.Empty;
+				Console.WriteLine($"Start{threaded}{simulated} action {item.Action.ClassType}, Instance: {item.Action.InstanceName} ({item.Host})");
+
+				if (!_actionSimulation)
+				{
+					IActionHandler handler = _actionHandlers[item.InstanceName];
+					handler.Action(item.Action, _configManager[item.InstanceName]);
+				}
+
+				Console.WriteLine($"End{threaded}{simulated} action {item.Action.ClassType}, Instance: {item.Action.InstanceName} ({item.Host})");
+			}
+			catch (Exception ex)
+			{
+				Error($"Error while processing action: {ex.ToString()}");
+			}
 		}
 
 		public void Stop()
@@ -102,7 +162,7 @@ namespace PiGpioConsoleHost
 			{
 				_configManager.Stop();
 				_cancellationSource.Cancel();
-				_queue.CompleteAdding();
+				_actionQueue.CompleteAdding();
 				_managerTask.Wait();
 				_managerTask = null;
 			}
@@ -115,7 +175,17 @@ namespace PiGpioConsoleHost
 				throw new ApplicationException("Instance not found: " + item.InstanceName);
 			}
 
-			_queue.Add(item);
+			_actionQueue.Add(item);
+		}
+
+		public void Log(string message, params object[] args)
+		{
+			Console.WriteLine(message, args);
+		}
+
+		public void Error(string message, params object[] args)
+		{
+			Console.Error.WriteLine(message, args);
 		}
 
 	}

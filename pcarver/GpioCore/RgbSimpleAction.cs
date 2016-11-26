@@ -9,25 +9,25 @@ namespace GpioCore
 {
 	public class RgbSimpleAction : ActionBase
 	{
-		[JsonProperty(PropertyName = "preDelay")]
+		[JsonProperty(PropertyName = "preDelay", Required = Required.Always)]
 		public int PreDelayMs { get; set; } = 0;
 
-		[JsonProperty(PropertyName = "postDelay")]
+		[JsonProperty(PropertyName = "postDelay", Required = Required.Always)]
 		public int PostDelayMs { get; set; } = 0;
 
-		[JsonProperty(PropertyName = "startDuration")]
+		[JsonProperty(PropertyName = "startDuration", Required = Required.Always)]
 		public int StartDurationMs { get; set; } = 0;
 
-		[JsonProperty(PropertyName = "endDuration")]
+		[JsonProperty(PropertyName = "endDuration", Required = Required.Always)]
 		public int EndDurationMs { get; set; } = 0;
 
-		[JsonProperty(PropertyName = "loops")]
+		[JsonProperty(PropertyName = "loops", Required = Required.Always)]
 		public int LoopCount { get; set; } = 0;
 
-		[JsonProperty(PropertyName = "startValues")]
+		[JsonProperty(PropertyName = "startValues", Required = Required.Always)]
 		public PinValue[] RgbStartValues { get; set; } = new PinValue[3] { PinValue.Low, PinValue.Low, PinValue.Low };
 
-		[JsonProperty(PropertyName = "endValues")]
+		[JsonProperty(PropertyName = "endValues", Required = Required.Always)]
 		public PinValue[] RgbEndValues { get; set; } = new PinValue[3] { PinValue.Low, PinValue.Low, PinValue.Low };
 
 	}

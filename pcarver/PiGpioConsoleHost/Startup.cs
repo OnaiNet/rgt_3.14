@@ -1,4 +1,5 @@
-﻿using Owin;
+﻿using Newtonsoft.Json;
+using Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,10 @@ namespace PiGpioConsoleHost
 				 defaults: new { id = RouteParameter.Optional });
 
 			appBuilder.UseWebApi(config);
+
+			// we need his object formatter so that base types received get
+			// desrialized into the correct derived types
+			config.Formatters.JsonFormatter.SerializerSettings.TypeNameHandling = TypeNameHandling.Objects;
 		}
 	}
 }

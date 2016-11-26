@@ -69,7 +69,7 @@ namespace WebSocketConsoleServer
 				}
 				catch (Exception aex)
 				{
-					Log("Error Accepting clients: " + aex.GetBaseException().Message);
+					Error("Error Accepting clients: " + aex.GetBaseException().Message);
 				}
 			}
 			Log("Server Stop accepting clients");
@@ -97,7 +97,7 @@ namespace WebSocketConsoleServer
 			}
 			catch (Exception aex)
 			{
-				Log("Error Handling connection: " + aex.GetBaseException().Message);
+				Error("Error Handling connection: " + aex.GetBaseException().Message);
 				try { ws.Close(); }
 				catch { }
 			}
@@ -109,9 +109,15 @@ namespace WebSocketConsoleServer
 			}
 		}
 
-		static void Log(string message)
+		static void Log(string message, params object[] args)
 		{
-			Console.WriteLine(message);
+			Console.WriteLine(message, args);
+		}
+
+
+		public void Error(string message, params object[] args)
+		{
+			Console.Error.WriteLine(message, args);
 		}
 	}
 }

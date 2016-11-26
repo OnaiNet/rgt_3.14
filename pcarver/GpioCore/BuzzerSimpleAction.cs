@@ -9,25 +9,25 @@ namespace GpioCore
 {
 	public class BuzzerSimpleAction : ActionBase
 	{
-		[JsonProperty(PropertyName = "preDelay")]
+		[JsonProperty(PropertyName = "preDelay", Required = Required.Always)]
 		public int PreDelayMs { get; set; } = 0;
 
-		[JsonProperty(PropertyName = "postDelay")]
+		[JsonProperty(PropertyName = "postDelay", Required = Required.Always)]
 		public int PostDelayMs { get; set; } = 0;
 
-		[JsonProperty(PropertyName = "startDuration")]
+		[JsonProperty(PropertyName = "startDuration", Required = Required.Always)]
 		public int StartDurationMs { get; set; } = 0;
 
-		[JsonProperty(PropertyName = "endDuration")]
+		[JsonProperty(PropertyName = "endDuration", Required = Required.Always)]
 		public int EndDurationMs { get; set; } = 0;
 
-		[JsonProperty(PropertyName = "loops")]
+		[JsonProperty(PropertyName = "loops", Required = Required.Always)]
 		public int LoopCount { get; set; } = 0;
 
-		[JsonProperty(PropertyName = "startValue")]
+		[JsonProperty(PropertyName = "startValue", Required = Required.Always)]
 		public PinValue LedStartValue { get; set; } = PinValue.Low;
 
-		[JsonProperty(PropertyName = "endValue")]
+		[JsonProperty(PropertyName = "endValue", Required = Required.Always)]
 		public PinValue LedEndValue { get; set; } = PinValue.Low;
 
 	}

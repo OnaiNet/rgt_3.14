@@ -18,7 +18,7 @@ namespace PiGpioConsoleHost.Controllers
 	{
 		[HttpPost]
 		[Route("~/gpio")]
-		public async Task<IHttpActionResult> PostRgbSimpleAction(dynamic[] actions)
+		public async Task<IHttpActionResult> PostRgbSimpleAction(ActionBase[] actions)
 		{
 			if (actions == null) // invalid json
 			{
@@ -36,19 +36,30 @@ namespace PiGpioConsoleHost.Controllers
 			}
 		}
 
-		private async Task DoAction(dynamic[] actions)
+		private async Task DoAction(ActionBase[] actions)
 		{
 			Console.WriteLine($"Received {actions.Length} action(s); queuing...");
 			await Task.Run(() =>
 			{
-				foreach (var json in actions)
+				foreach (var action in actions)
 				{
-					string host = Request.GetOwinContext().Request.RemoteIpAddress;
-					ActionBase obj = ActionBase.JsonCreate(json);
-					ActionQueueItem item = new ActionQueueItem (obj, obj.InstanceName, host);
-					ActionQueueManager.Instance.Enqueue(item);
+					try
+					{
+						string fromHost = Request.GetOwinContext().Request.RemoteIpAddress;
+						ActionQueueItem item = new ActionQueueItem(action, action.InstanceName, fromHost);
+						ActionQueueManager.Instance.Enqueue(item);
+					}
+					catch(Exception ex)
+					{
+						Error($"Error while queuing action: {ex.ToString()}");
+					}
 				}
 			});
+		}
+
+		public void Error(string message, params object[] args)
+		{
+			Console.Error.WriteLine(message, args);
 		}
 	}
 }

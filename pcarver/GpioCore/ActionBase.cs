@@ -9,34 +9,14 @@ namespace GpioCore
 {
 	public class ActionBase
 	{
-		[JsonProperty(PropertyName = "plugin")]
-		public string PluginName { get; set; }
+		[JsonProperty(PropertyName = "$type", Required = Required.Always)]
+		public string ClassType { get; set; }
 
-		[JsonProperty(PropertyName = "instance")]
+		[JsonProperty(PropertyName = "instance", Required = Required.Always)]
 		public string InstanceName { get; set; }
 
-		[JsonProperty(PropertyName = "threaded")]
-		public bool IsThreaded { get; set; } = false;
+		[JsonProperty(PropertyName = "threadId", Required = Required.Default)]
+		public Guid ThreadId { get; set; } = Guid.Empty;
 
-		public static ActionBase JsonCreate(dynamic json)
-		{
-			ActionBase action = null;
-			try
-			{
-				Type type = Type.GetType($"GpioCore.{json.plugin}, GpioCore");
-				action = (ActionBase)JsonConvert.DeserializeObject(json.data.ToString(), type);
-			}
-			catch (Exception)
-			{
-				throw new ApplicationException($"Invalid plugin: {json.plugin}");
-			}
-
-			// any case properties
-			action.PluginName = json.plugin;
-			action.InstanceName = json.instance;
-			action.IsThreaded = json.threaded;
-
-			return action;
-		}
 	}
 }

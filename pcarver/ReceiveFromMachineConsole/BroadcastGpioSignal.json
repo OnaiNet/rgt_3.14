@@ -1,52 +1,45 @@
 ﻿[
   {
-    "plugin": "BuzzerSimpleAction",
+    "$type": "GpioCore.BuzzerSimpleAction, GpioCore",
     "instance": "BuzzerSimpleAction",
-    "threaded": true,
-    "data": {
-      "preDelay": 0,
-      "postDelay": 0,
-      "loops": 4,
-      "startDuration": 1000,
-      "endDuration": 250,
-      "startValue": 1,
-      "endValue": 0
-    }
+    "threadId": "867d730e-b6dc-40aa-b47a-7b6ebbb35410",
+    "preDelay": 0,
+    "postDelay": 0,
+    "loops": 3,
+    "startDuration": 1000,
+    "endDuration": 250,
+    "startValue": 1,
+    "endValue": 0
   },
   {
-    "plugin": "LedSimpleAction",
+    "$type": "GpioCore.LedSimpleAction, GpioCore",
     "instance": "LedSimpleAction",
-    "threaded": true,
-    "data": {
-      "preDelay": 0,
-      "postDelay": 0,
-      "loops": 4,
-      "startDuration": 1000,
-      "endDuration": 250,
-      "startValue": 1,
-      "endValue": 0
-    }
+    "threadId": "867d730e-b6dc-40aa-b47a-7b6ebbb35410",
+    "preDelay": 0,
+    "postDelay": 0,
+    "loops": 3,
+    "startDuration": 1000,
+    "endDuration": 250,
+    "startValue": 1,
+    "endValue": 0
   },
   {
-    "plugin": "RgbSimpleAction",
+    "$type": "GpioCore.RgbSimpleAction, GpioCore",
     "instance": "RgbSimpleAction",
-    "threaded": false,
-    "data": {
-      "preDelay": 0,
-      "postDelay": 1000,
-      "loops": 4,
-      "startDuration": 1000,
-      "endDuration": 250,
-      "startValues": [
-        1,
-        0,
-        0
-      ],
-      "endValues": [
-        0,
-        0,
-        0
-      ]
-    }
+    "preDelay": 0,
+    "postDelay": 1000,
+    "loops": 3,
+    "startDuration": 1000,
+    "endDuration": 250,
+    "startValues": [
+      1,
+      0,
+      0
+    ],
+    "endValues": [
+      0,
+      0,
+      0
+    ]
   }
 ]

@@ -1,55 +1,46 @@
 ﻿[
   {
-    "plugin": "RgbSimpleAction",
+    "$type": "GpioCore.RgbSimpleAction, GpioCore",
     "instance": "RgbSimpleAction",
-    "threaded": true,
-    "guid": "9a6a81eb-27b3-454e-9351-0f942e0d109a",
-    "data": {
-      "preDelay": 0,
-      "postDelay": 1200,
-      "loops": 4,
-      "startDuration": 3000,
-      "endDuration": 1000,
-      "startValues": [
-        1,
-        0,
-        0
-      ],
-      "endValues": [
-        0,
-        0,
-        0
-      ]
-    }
+    "threadId": "867d730e-b6dc-40aa-b47a-7b6ebbb35413",
+    "preDelay": 5000,
+    "postDelay": 0,
+    "loops": 4,
+    "startDuration": 2000,
+    "endDuration": 500,
+    "startValues": [
+      1,
+      0,
+      0
+    ],
+    "endValues": [
+      0,
+      0,
+      0
+    ]
   },
   {
-    "plugin": "LedSimpleAction",
+    "$type": "GpioCore.LedSimpleAction, GpioCore",
     "instance": "LedSimpleAction",
-    "threaded": true,
-    "guid": "9a6a81eb-27b3-454e-9351-0f942e0d109a",
-    "data": {
-      "preDelay": 0,
-      "postDelay": 1200,
-      "loops": 4,
-      "startDuration": 3000,
-      "endDuration": 1000,
-      "startValue": 1,
-      "endValue": 0
-    }
+    "threadId": "867d730e-b6dc-40aa-b47a-7b6ebbb35414",
+    "preDelay": 5000,
+    "postDelay": 0,
+    "loops": 4,
+    "startDuration": 2000,
+    "endDuration": 500,
+    "startValue": 1,
+    "endValue": 0
   },
   {
-    "plugin": "BuzzerSimpleAction",
+    "$type": "GpioCore.BuzzerSimpleAction, GpioCore",
     "instance": "BuzzerSimpleAction",
-    "threaded": true,
-    "guid": "9a6a81eb-27b3-454e-9351-0f942e0d109a",
-    "data": {
-      "preDelay": 0,
-      "postDelay": 0,
-      "loops": 5,
-      "startDuration": 500,
-      "endDuration": 200,
-      "startValue": 1,
-      "endValue": 0
-    }
+    "threadId": "867d730e-b6dc-40aa-b47a-7b6ebbb35415",
+    "preDelay": 5000,
+    "postDelay": 0,
+    "loops": 4,
+    "startDuration": 2000,
+    "endDuration": 500,
+    "startValue": 1,
+    "endValue": 0
   }
 ]
