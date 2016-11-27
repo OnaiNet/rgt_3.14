@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSocketConsoleServer", "WebSocketConsoleServer\WebSocketConsoleServer.csproj", "{076A5C07-041C-4AAD-B2D8-ED58EC023BE9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaulTechGuy.WebSocketConsoleServer", "PaulTechGuy.WebSocketConsoleServer\PaulTechGuy.WebSocketConsoleServer.csproj", "{076A5C07-041C-4AAD-B2D8-ED58EC023BE9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{9D7AB939-2479-411E-8748-132A403A2185}"
 	ProjectSection(SolutionItems) = preProject
@@ -16,17 +16,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vtortola.WebSockets", "WebS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vtortola.WebSockets.Deflate", "WebSocketListener\vtortola.WebSockets.Deflate\vtortola.WebSockets.Deflate.csproj", "{3BFDAE73-A6A9-40B9-9026-84DD005BBAC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReceiveFromMachineConsole", "ReceiveFromMachineConsole\ReceiveFromMachineConsole.csproj", "{6D77AA79-7486-4F5B-A1FD-8CA8F9D8FFFC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaulTechGuy.ReceiveFromMachineConsole", "PaulTechGuy.ReceiveFromMachineConsole\PaulTechGuy.ReceiveFromMachineConsole.csproj", "{6D77AA79-7486-4F5B-A1FD-8CA8F9D8FFFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TranslateApiConsoleHost", "TranslateApiConsoleHost\TranslateApiConsoleHost.csproj", "{407A0D27-99C5-4DB3-A3ED-C377B2863F14}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaulTechGuy.TranslateApiConsoleHost", "PaulTechGuy.TranslateApiConsoleHost\PaulTechGuy.TranslateApiConsoleHost.csproj", "{407A0D27-99C5-4DB3-A3ED-C377B2863F14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TranslateCore", "TranslationCore\TranslateCore.csproj", "{8128D8A3-200A-42A2-B284-8818F5A6E542}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaulTechGuy.TranslateCore", "PaulTechGuy.TranslationCore\PaulTechGuy.TranslateCore.csproj", "{8128D8A3-200A-42A2-B284-8818F5A6E542}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiGpioConsoleHost", "PiGpioConsoleHost\PiGpioConsoleHost.csproj", "{DAC19D2C-C267-47A2-8026-9C272D98803E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaulTechGuy.PiGpioConsoleHost", "PaulTechGuy.PiGpioConsoleHost\PaulTechGuy.PiGpioConsoleHost.csproj", "{DAC19D2C-C267-47A2-8026-9C272D98803E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GpioCore", "GpioCore\GpioCore.csproj", "{57FC566D-D931-4A12-80B8-5C9C13D87253}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaulTechGuy.GpioCore", "PaulTechGuy.GpioCore\PaulTechGuy.GpioCore.csproj", "{57FC566D-D931-4A12-80B8-5C9C13D87253}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GpioClientUtility", "GpioClientUtility\GpioClientUtility.csproj", "{A3140386-1711-410C-97F8-7B593D9F53F0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaulTechGuy.GpioClientUtility", "PaulTechGuy.GpioClientUtility\PaulTechGuy.GpioClientUtility.csproj", "{A3140386-1711-410C-97F8-7B593D9F53F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
