@@ -1,13 +1,14 @@
 ﻿using Newtonsoft.Json;
+using PaulTechGuy.GpioCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PaulTechGuy.GpioCore
+namespace PaulTechGuy.GpioActions
 {
-	public class BuzzerSimpleAction : ActionBase
+	public class RgbSimpleAction : ActionBase
 	{
 		[JsonProperty(PropertyName = "preDelay", Required = Required.Always)]
 		public int PreDelayMs { get; set; } = 0;
@@ -24,11 +25,11 @@ namespace PaulTechGuy.GpioCore
 		[JsonProperty(PropertyName = "loops", Required = Required.Always)]
 		public int LoopCount { get; set; } = 0;
 
-		[JsonProperty(PropertyName = "startValue", Required = Required.Always)]
-		public PinValue LedStartValue { get; set; } = PinValue.Low;
+		[JsonProperty(PropertyName = "startValues", Required = Required.Always)]
+		public PinValue[] RgbStartValues { get; set; } = new PinValue[3] { PinValue.Low, PinValue.Low, PinValue.Low };
 
-		[JsonProperty(PropertyName = "endValue", Required = Required.Always)]
-		public PinValue LedEndValue { get; set; } = PinValue.Low;
+		[JsonProperty(PropertyName = "endValues", Required = Required.Always)]
+		public PinValue[] RgbEndValues { get; set; } = new PinValue[3] { PinValue.Low, PinValue.Low, PinValue.Low };
 
 	}
 }

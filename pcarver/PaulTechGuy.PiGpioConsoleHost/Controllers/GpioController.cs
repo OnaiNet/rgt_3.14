@@ -1,6 +1,5 @@
 ﻿using PaulTechGuy.GpioCore;
 using Newtonsoft.Json;
-using PaulTechGuy.RPi.GpioLib;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;

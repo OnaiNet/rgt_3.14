@@ -1,11 +1,12 @@
 ﻿using Newtonsoft.Json;
+using PaulTechGuy.GpioCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PaulTechGuy.GpioCore
+namespace PaulTechGuy.GpioActions
 {
 	public class LedSimpleAction : ActionBase
 	{

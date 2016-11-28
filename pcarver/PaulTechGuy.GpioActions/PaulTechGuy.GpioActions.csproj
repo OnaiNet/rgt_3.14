@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{57FC566D-D931-4A12-80B8-5C9C13D87253}</ProjectGuid>
+    <ProjectGuid>{F5AA4514-2E44-43CC-A2FF-AEBD25FE927F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PaulTechGuy.GpioCore</RootNamespace>
-    <AssemblyName>PaulTechGuy.GpioCore</AssemblyName>
+    <RootNamespace>PaulTechGuy.GpioActions</RootNamespace>
+    <AssemblyName>PaulTechGuy.GpioActions</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -35,10 +35,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="PaulTechGuy.RPi.GpioLib">
-      <HintPath>.\PaulTechGuy.RPi.GpioLib.dll</HintPath>
+      <HintPath>..\PaulTechGuy.GpioCore\PaulTechGuy.RPi.GpioLib.dll</HintPath>
     </Reference>
     <Reference Include="PaulTechGuy.RPi.WiringPi">
-      <HintPath>.\PaulTechGuy.RPi.WiringPi.dll</HintPath>
+      <HintPath>..\PaulTechGuy.GpioCore\PaulTechGuy.RPi.WiringPi.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -50,19 +50,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionBase.cs" />
-    <Compile Include="ActionQueueItem.cs" />
-    <Compile Include="ActionTaskItem.cs" />
-    <Compile Include="IActionHandler.cs" />
-    <Compile Include="PinValue.cs" />
+    <Compile Include="BuzzerSimpleAction.cs" />
+    <Compile Include="HandlerBuzzerSimpleAction.cs" />
+    <Compile Include="HandlerLedSimpleAction.cs" />
+    <Compile Include="HandlerRgbSimpleAction.cs" />
+    <Compile Include="LedSimpleAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RgbSimpleAction.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PaulTechGuy.GpioCore\PaulTechGuy.GpioCore.csproj">
+      <Project>{57fc566d-d931-4a12-80b8-5c9c13d87253}</Project>
+      <Name>PaulTechGuy.GpioCore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ExampleAction.json" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="PaulTechGuy.RPi.GpioLib.dll" />
-    <Content Include="PaulTechGuy.RPi.WiringPi.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

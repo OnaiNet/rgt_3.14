@@ -7,7 +7,7 @@ using PaulTechGuy.GpioCore;
 using System.Threading;
 using PaulTechGuy.RPi.GpioLib;
 
-namespace PaulTechGuy.PiGpioConsoleHost
+namespace PaulTechGuy.GpioActions
 {
 	public class HandlerLedSimpleAction : IActionHandler
 	{
@@ -18,9 +18,19 @@ namespace PaulTechGuy.PiGpioConsoleHost
 			// note that config is dynamic so we cast the pin values to integer
 			using (DigitalPin pin = GpioHeader.Instance.CreatePin((int)config.pin, DigitalPinDirection.Output))
 			{
+				if (cancelToken.IsCancellationRequested)
+				{
+					return;
+				}
+
 				if (action.PreDelayMs > 0)
 				{
 					Thread.Sleep(action.PreDelayMs);
+				}
+
+				if (cancelToken.IsCancellationRequested)
+				{
+					return;
 				}
 
 				for (int loopCounter = 0; loopCounter < action.LoopCount; ++loopCounter)
@@ -43,6 +53,10 @@ namespace PaulTechGuy.PiGpioConsoleHost
 						Thread.Sleep(action.EndDurationMs);
 					}
 
+					if (cancelToken.IsCancellationRequested)
+					{
+						return;
+					}
 				}
 
 				if (action.PostDelayMs > 0)

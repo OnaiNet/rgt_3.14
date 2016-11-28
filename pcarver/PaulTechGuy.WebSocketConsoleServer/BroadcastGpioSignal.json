@@ -1,6 +1,6 @@
 ﻿[
   {
-    "$type": "PaulTechGuy.GpioCore.BuzzerSimpleAction, PaulTechGuy.GpioCore",
+    "$type": "PaulTechGuy.GpioActions.BuzzerSimpleAction, PaulTechGuy.GpioActions",
     "instance": "BuzzerSimpleAction",
     "taskId": "867d730e-b6dc-40aa-b47a-7b6ebbb35410",
     "preDelay": 0,
@@ -12,7 +12,7 @@
     "endValue": 0
   },
   {
-    "$type": "PaulTechGuy.GpioCore.LedSimpleAction, PaulTechGuy.GpioCore",
+    "$type": "PaulTechGuy.GpioActions.LedSimpleAction, PaulTechGuy.GpioActions",
     "instance": "LedSimpleAction",
     "taskId": "867d730e-b6dc-40aa-b47a-7b6ebbb35411",
     "preDelay": 0,
@@ -24,7 +24,7 @@
     "endValue": 0
   },
   {
-    "$type": "PaulTechGuy.GpioCore.RgbSimpleAction, PaulTechGuy.GpioCore",
+    "$type": "PaulTechGuy.GpioActions.RgbSimpleAction, PaulTechGuy.GpioActions",
     "instance": "RgbSimpleAction",
     "preDelay": 0,
     "postDelay": 1000,

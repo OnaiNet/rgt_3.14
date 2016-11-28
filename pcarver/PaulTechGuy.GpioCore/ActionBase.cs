@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PaulTechGuy.GpioCore
 {
-	public class ActionBase
+	public abstract class ActionBase
 	{
 		[JsonProperty(PropertyName = "instance", Required = Required.Always)]
 		public string InstanceName { get; set; }

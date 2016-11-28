@@ -28,6 +28,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaulTechGuy.GpioCore", "Pau
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaulTechGuy.GpioClientUtility", "PaulTechGuy.GpioClientUtility\PaulTechGuy.GpioClientUtility.csproj", "{A3140386-1711-410C-97F8-7B593D9F53F0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaulTechGuy.GpioActions", "PaulTechGuy.GpioActions\PaulTechGuy.GpioActions.csproj", "{F5AA4514-2E44-43CC-A2FF-AEBD25FE927F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -74,6 +76,10 @@ Global
 		{A3140386-1711-410C-97F8-7B593D9F53F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3140386-1711-410C-97F8-7B593D9F53F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3140386-1711-410C-97F8-7B593D9F53F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5AA4514-2E44-43CC-A2FF-AEBD25FE927F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5AA4514-2E44-43CC-A2FF-AEBD25FE927F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5AA4514-2E44-43CC-A2FF-AEBD25FE927F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5AA4514-2E44-43CC-A2FF-AEBD25FE927F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

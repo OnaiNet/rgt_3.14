@@ -1,4 +1,5 @@
-﻿using PaulTechGuy.GpioCore;
+﻿using PaulTechGuy.GpioActions;
+using PaulTechGuy.GpioCore;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
