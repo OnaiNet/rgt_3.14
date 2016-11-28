@@ -11,6 +11,7 @@ using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Text;
 
 namespace PaulTechGuy.PiGpioConsoleHost.Controllers
 {
@@ -32,7 +33,7 @@ namespace PaulTechGuy.PiGpioConsoleHost.Controllers
 				await DoAction(actions);
 				return Ok();
 			}
-			catch(Exception ex)
+			catch (Exception ex)
 			{
 				return BadRequest(ex.Message);
 			}
@@ -40,11 +41,18 @@ namespace PaulTechGuy.PiGpioConsoleHost.Controllers
 
 		[HttpGet]
 		[Route("~/task")]
-		public ActionTaskItem[] GetActionTaskCollection()
+		public HttpResponseMessage GetActionTaskCollection()
 		{
+			// we don't want to have the Json type name handling $type in the response so we need
+			// to use a response message and manually set the Content member as a json string
 			var tasks = ActionQueueManager.Instance.Tasks();
+			HttpResponseMessage responseMsg = new HttpResponseMessage
+			{
+				Content = new StringContent(JsonConvert.SerializeObject(tasks, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.None }))
+			};
+			responseMsg.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-			return tasks;
+			return responseMsg;
 		}
 
 		[HttpDelete]
@@ -55,11 +63,11 @@ namespace PaulTechGuy.PiGpioConsoleHost.Controllers
 
 			if (requestCancelExists)
 			{
-				return Content(HttpStatusCode.OK, new { message = $"Cancel requested submitted, id: {id.ToString()}" });
+				return Ok();
 			}
 			else
 			{
-				return Content(HttpStatusCode.NotFound, new { message = $"Task not found, id: {id.ToString()}" });
+				return NotFound();
 			}
 		}
 
@@ -80,7 +88,7 @@ namespace PaulTechGuy.PiGpioConsoleHost.Controllers
 						ActionQueueItem item = new ActionQueueItem(action, action.InstanceName, fromHost);
 						ActionQueueManager.Instance.Enqueue(item);
 					}
-					catch(Exception ex)
+					catch (Exception ex)
 					{
 						Error($"Error while queuing action: {ex.ToString()}");
 					}
