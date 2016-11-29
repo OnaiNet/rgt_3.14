@@ -646,3 +646,243 @@
   646  ll
   647  history | head
   648  history > commands.md 
+  649  cd ..
+  650  git status
+  651  git add kgwynn/commands.md
+  652  git commit -m "Updated commands.md"
+  653  git push
+  654  exit
+  655  hostname
+  656  hostname test2
+  657  sudo hostname test2
+  658  hostname
+  659  sudo hostname rgt_kgwynn
+  660  sudo hostname rgtkgwynn
+  661  hostname
+  662  exit
+  663  ping rgtpcarver
+  664  ping 10.10.2.92
+  665  exit
+  666  cd Development/rgt_3.14/
+  667  git pull
+  668  git status
+  669  git log | head
+  670  git push
+  671  git log
+  672  git diff 333668c74e8b96f403f1d4d67b0fdcc8d418d8a6 34cb3e7a90dd34809785dfeb7097083ad4f6cdd5
+  673  git push
+  674  tools/getip
+  675  git status
+  676  git pull
+  677  jobs
+  678  cat /etc/hosts
+  679  hostname
+  680  ping rgt_kgwynn
+  681  hostname
+  682  sudo tools/sethosts
+  683  cat /etc/hosts
+  684  ping rgtkgwynn
+  685  ping rgtpcarver
+  686  exit
+  687  cd Development/rgt_3.14/
+  688  git pull
+  689  cd kgwynn/
+  690  ll
+  691  cd webroot/
+  692  ll
+  693  vi js/main.js
+  694  cd ..
+  695  git status
+  696  git add webroot/js/main.js
+  697  git commit -m "Changed to point to Paul's Pi at CHG via hostname rgtpcarver" && git push
+  698  git push
+  699  exit
+  700  which vi
+  701  which vim
+  702  vim
+  703  cd Development/rgt_3.14/
+  704  tools/getip
+  705  sudo iwlist wlan0 scan
+  706  sudo vi /etc/wpa_supplicant/wpa_supplicant.conf 
+  707  ll
+  708  tools/getip > kgwynn/ip
+  709  git status
+  710  history > kgwynn/commands.md 
+  711  git add kgwynn/commands.md kgwynn/ip
+  712  git commit -m "Updated commands.md; updated to CHG eth0 IP" && git push
+  713  git push
+  714  hostname
+  715  vi /etc/hosts
+  716  sudo vi /etc/hosts
+  717  sudo shutdown -r
+  718  hostname
+  719  sudo vi /etc/hosts
+  720  vi /etc/init.d/hostname.sh 
+  721  sudo vi /etc/hostname
+  722  vi /etc/hosts
+  723  sudo shutdown -r 
+  724  hostname
+  725  cat /etc/hostname
+  726  cat /etc/hosts
+  727  :wq
+  728  exit
+  729  cd Development/
+  730  ll
+  731  cd rgt_3.14/
+  732  ll
+  733  vi tools/sethosts 
+  734  cd kgwynn
+  735  ll
+  736  cd webroot
+  737  ll
+  738  vi js/main.js
+  739  cd ..
+  740  cd webroot
+  741  ll
+  742  cd ..
+  743  git status
+  744  git pull
+  745  git add kgwynn/webroot/js/main.js tools/sethosts
+  746  git commit -m "Decided on a new hostname pattern: {username}.rgt"
+  747  git push
+  748  git status
+  749  cd ..
+  750  ll
+  751  hostname
+  752  ping kgwynn.rgt
+  753  ping rgtkgwynn
+  754  ping rgt_kgwynn
+  755  ping kgwynn
+  756  exit
+  757  hostname
+  758  sudo shutdown -r now
+  759  hostname
+  760  cat /etc/hostname
+  761  cat /etc/hosts
+  762  cd /etc/init.d
+  763  ll
+  764  vi hostname.sh 
+  765  vi sudo
+  766  vi reboot
+  767  vi hostname.sh 
+  768  ll
+  769  cd ~/Development/
+  770  ll
+  771  cd rgt_3.14/
+  772  git pull
+  773  cd kgwynn/webroot/
+  774  php -S *:8080
+  775  php -S rgt_kgwynn:8080
+  776  php -S rgtkgwynn:8080
+  777  hostname rgt.kgwynn
+  778  sudo hostname rgt.kgwynn
+  779  sudo vi /etc/hostname
+  780  sudo vi /etc/hosts
+  781  sudo hostname kgwynn.rgt && sudo vi /etc/hostname && sudo vi /etc/hosts
+  782  sudo vi /etc/hosts
+  783  sudo vi /etc/hosts.orig 
+  784  ll
+  785  pwd
+  786  cd ..
+  787  cat /etc/hosts
+  788  sudo tools/sethosts
+  789  cat /etc/hosts
+  790  cat kgwynn/ip
+  791  ifconfig
+  792  tools/getip
+  793  ifconfig
+  794  cd Development/
+  795  ll
+  796  cd rgt_3.14/
+  797  ll
+  798  tools/getip
+  799  tools/getip > kgwynn/ip
+  800  cat /etc/hosts
+  801  git add kgwynn/ip
+  802  git commit -m "Updated to wifi IP"
+  803  git push
+  804  git pull
+  805  git push
+  806  git pull
+  807  git status
+  808  git log
+  809  git push
+  810  ll
+  811  cat tools/sethosts
+  812  sudo tools/sethosts
+  813  vi /etc/hosts
+  814  exit
+  815  jobs
+  816  fg
+  817  jobs
+  818  exit
+  819  cd Development/
+  820  cd rgt_3.14/
+  821  git pull
+  822  cd kgwynn/
+  823  ll
+  824  cd webroot
+  825  vi js/main.js
+  826  ping pcarver.rgt
+  827  exit
+  828  fg
+  829  exit
+  830  ll
+  831  hostname
+  832  ping pcarver.rgt
+  833  cd Development/
+  834  cd rgt_3.14/
+  835  git pull
+  836  ll
+  837  sudo tools/sethosts
+  838  cat /etc/hosts
+  839  ifconfig
+  840  shutdown --help
+  841  shutdown now
+  842  sudo shutdown now
+  843  ifconfig
+  844  cd Development/rgt_3.14/
+  845  cat pcarver/ip
+  846  ping pcarver.rgt
+  847  cat /etc/hosts
+  848  ping 10.10.147.165
+  849  ping pcarver.rgt
+  850  cd kgwynn/webroot
+  851  ll
+  852  vi js/main.js
+  853  ping pcarver.rgt
+  854  exit
+  855  ifconfig
+  856  cd Development/
+  857  ll
+  858  cd rgt_3.14/
+  859  ll
+  860  git pull
+  861  ll
+  862  tools/getip
+  863  tools/getip > kgwynn/ip
+  864  git commit -m "Updated WLAN IP" && git push
+  865  git add kgwynn/ip && git commit -m "Updated WLAN IP" && git push
+  866  git push
+  867  ll
+  868  sudo tools/sethosts
+  869  cat /etc/hosts
+  870  ping kgwynn.rgt
+  871  ll
+  872  hostname kgwynn.rgt
+  873  cd kgwynn
+  874  vi drawing.php
+  875  ll
+  876  cd ..
+  877  git status
+  878  git diff kgwynn/webroot/js/main.js
+  879  git add kgwynn/webroot/js/main.js && git commit -m "Updated some comments to provide slightly more specific logging" && git push
+  880  jobs
+  881  exit
+  882  cat /etc/hosts
+  883  shutdown --help
+  884  cd Development/rgt_3.14/kgwynn/
+  885  l
+  886  ll
+  887  history | head
+  888  history > commands.md

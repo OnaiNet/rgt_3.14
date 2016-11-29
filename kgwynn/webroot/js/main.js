@@ -127,15 +127,15 @@ $(document).ready(function(){
 	connection = new WebSocket('ws://pcarver.rgt:8005');
 	
 	connection.onopen = function() {
-		console.log('Socket opened; listening for result');
+		console.log('WebSocket opened; listening for result');
 	};
 
 	connection.onclose = function() {
-		console.log('Socket closed');
+		console.log('WebSocket closed');
 	};
 
 	connection.onmessage = function(message) {
-		console.log('Received: ' + message.data);
+		console.log('WebSocket Message Received: ' + message.data);
 		processFinalMessage(message.data);
 	};
 });
