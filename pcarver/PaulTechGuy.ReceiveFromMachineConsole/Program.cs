@@ -135,7 +135,7 @@ namespace PaulTechGuy.ReceiveFromMachineConsole
 			}
 
 			string json = File.ReadAllText("BroadcastGpioSignal.json");
-			await GpioClientUtility.GpioClient.SendActionAsync<dynamic>(JsonConvert.DeserializeObject(json));
+			await GpioClientUtility.GpioClient.SendActionAsync<dynamic>(JsonConvert.DeserializeObject(json), "/gpio/action");
 		}
 	}
 }

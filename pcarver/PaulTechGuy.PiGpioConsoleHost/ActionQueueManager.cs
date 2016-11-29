@@ -216,6 +216,22 @@ namespace PaulTechGuy.PiGpioConsoleHost
 			return tasks;
 		}
 
+		public ActionTaskItem GetTask(Guid taskId)
+		{
+			ActionTaskItem taskItem = null;
+			if (_actionTasks.TryGetValue(taskId, out taskItem))
+			{
+				Log($"{nameof(this.GetTask)} returned , id: {taskItem.ToString()}");
+			}
+			else
+			{
+				// not a system type error, so log do normal log
+				Log($"{nameof(this.GetTask)}, id does not exist: {taskId.ToString()}");
+			}
+
+			return taskItem;
+		}
+
 		public bool CancelTask(Guid taskId)
 		{
 			ActionTaskItem taskItem;
@@ -234,7 +250,8 @@ namespace PaulTechGuy.PiGpioConsoleHost
 			}
 			else
 			{
-				Error($"Cancel task, id does not exist: {taskId.ToString()}");
+				// not a system type error, so log do normal log
+				Log($"Cancel task, id does not exist: {taskId.ToString()}");
 			}
 
 			return exists;
