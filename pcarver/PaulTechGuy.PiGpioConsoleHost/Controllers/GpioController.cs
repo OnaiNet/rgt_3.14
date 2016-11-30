@@ -19,7 +19,7 @@ namespace PaulTechGuy.PiGpioConsoleHost.Controllers
 		#region public methods
 
 		[HttpPost]
-		[Route("~/gpio")]
+		[Route("~/gpio/action")]
 		public async Task<IHttpActionResult> PostActionCollection(ActionBase[] actions)
 		{
 			if (actions == null) // invalid json
@@ -39,34 +39,37 @@ namespace PaulTechGuy.PiGpioConsoleHost.Controllers
 		}
 
 		[HttpGet]
-		[Route("~/task")]
-		public HttpResponseMessage GetActionTaskCollection()
+		[Route("~/gpio/task")]
+		public ActionTaskItem[] GetActionTaskCollection()
 		{
-			// we don't want to have the Json type name handling $type in the response so we need
-			// to use a response message and manually set the Content member as a json string
 			var tasks = ActionQueueManager.Instance.Tasks();
-			HttpResponseMessage responseMsg = new HttpResponseMessage
-			{
-				Content = new StringContent(JsonConvert.SerializeObject(tasks, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.None }))
-			};
-			responseMsg.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-			return responseMsg;
+			return tasks;
 		}
 
 		[HttpDelete]
-		[Route("~/task/{id:guid}")]
+		[Route("~/gpio/task/{id:guid}")]
 		public IHttpActionResult DeleteActionTask(Guid id)
 		{
 			bool requestCancelExists = ActionQueueManager.Instance.CancelTask(id);
-
 			if (requestCancelExists)
-			{
 				return Ok();
+			else
+				return BadRequest();
+		}
+
+		[HttpGet]
+		[Route("~/gpio/task/{id:guid}")]
+		public IHttpActionResult GetActionTask(Guid id)
+		{
+			ActionTaskItem taskItem = ActionQueueManager.Instance.GetTask(id);
+			if (taskItem != null)
+			{
+				return Ok(taskItem);
 			}
 			else
 			{
-				return NotFound();
+				return BadRequest();
 			}
 		}
 

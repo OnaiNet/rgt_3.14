@@ -30,7 +30,7 @@ The goal is to have a visual representation of data being transferred and transl
 
 **OPTIONAL** Once the requirements are met, spice things up by making your visual output fancier, or improve logging. Some additional ideas:
 
-1. Make your input very fancy.
+1. Make your visual output/display very fancy.
   1. Maybe utilize a breadboard and the Pi's GPIO pinout to do some fancy visual or audio indicators.
   2. 3-D transforms? Animation? Go wild.
 2. Log all your inputs and outputs in a persistent store.
@@ -44,6 +44,22 @@ The goal is to have a visual representation of data being transferred and transl
 4. Developers will be expected to help any non-developers so we can all learn.
 5. By default, all the Pi's will have Raspbian installed, which is a Debian-based Linux OS. We'll have to figure out our way around in this environment.
 6. The project sponsors are very willing to help along the way! (contact Kevin Gwynn or Steve Keiser)
+
+### Demo
+
+If you missed the demo in person, here's essentially what happened:
+
+1. Machine 0 (Kevin's Pi) is hooked up to a monitor. On the screen is a browser window at "http://kgwynn.rgt". There is a single cursor blinking in the middle of the screen.
+2. Someone suggests an input and it is typed into the box.
+3. Once the ENTER key is hit, the text is erased, then animates across the screen.
+4. Meanwhile the Machine 0 tweets the input: https://twitter.com/hashtag/rgt_output
+5. Machine 1 (Paul's Pi) is in the room, but with no monitor or keyboard/mouse. It does have a breadboard attached and has an LED, an RGB, and an audio beep-speaker.
+6. Machine 1 receives the input, translates it from one language to another, to another, to another, and back to English.
+6. While translating, Machine 1 indicates it is receiving, processing, and sending a message via lights and beeps.
+7. Machine 1, via WebSockets, sends its results back to Machine 0.
+8. Machine 0 takes the results and does its own translation, converting a few words (if any) to words that SOUND the same when spoken.
+9. Machine 0 displays the final results on the screen.
+10. Machine 0 also tweets the result: https://twitter.com/hashtag/rgt_results
 
 ## Raspberry Pi Notes
 

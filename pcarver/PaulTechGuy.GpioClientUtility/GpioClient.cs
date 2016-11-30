@@ -11,7 +11,7 @@ namespace PaulTechGuy.GpioClientUtility
 {
 	public static class GpioClient
 	{
-		public static async Task SendActionAsync<T>(T action)
+		public static async Task SendActionAsync<T>(T action, string route)
 		{
 			HttpClient client = new HttpClient();
 			client.DefaultRequestHeaders.Accept.Clear();
@@ -20,7 +20,7 @@ namespace PaulTechGuy.GpioClientUtility
 			var host = ConfigurationManager.AppSettings["GpioServerHost"];
 			var port = Convert.ToInt32(ConfigurationManager.AppSettings["GpioServerPort"]);
 
-			var uri = $"http://{host}:{port}/gpio";
+			var uri = $"http://{host}:{port}{route}";
 
 			HttpResponseMessage response = await client.PostAsJsonAsync<T>(uri, action)
 				.ContinueWith(t => t.Result.EnsureSuccessStatusCode());
