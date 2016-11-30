@@ -28,13 +28,13 @@ if(DEBUG)echo "length = [$length]<br>start_word = [$start_word]<br>nth_word = [$
 	$words = explode(' ', $input);	
 
 	for ($i = $start_word; $i < sizeof($words); $i += $nth_word) {
-		$words[$i] = find_word_sounds_like($words[$i]);
+		$words[$i] = find_word_sounds_like($words[$i], $i);
 	}
 
 	return implode(' ', $words);
 }
 
-function find_word_sounds_like($word) {
+function find_word_sounds_like($word, $seed = 0) {
 	$original_word = $word;
 	$word = preg_replace("/[^\w]/", '', $word);
 	$word_converted = metaphone($word);
@@ -53,13 +53,15 @@ function find_word_sounds_like($word) {
 			$matches[] = $new_word;
 		}
 	}
-if(DEBUG)echo "word = [$word]; matches = ";
+if(DEBUG)echo "word = [$word]; seed = [$seed]; matches = ";
 if(DEBUG)print_r($matches);
 
 	if (sizeof($matches) == 0) return $original_word;
 	//shuffle($matches); // This is not idempotent!
-	$pick = sizeof($matches % 3);
+	$pick = $seed % sizeof($matches);
 	if ($pick >= sizeof($matches)) $pick = sizeof($matches) - 1;
+
+if(DEBUG)echo "pick = [" . $matches[$pick] . "];<br />";
 
 	return $matches[$pick];
 }

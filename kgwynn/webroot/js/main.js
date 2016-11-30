@@ -97,6 +97,7 @@ var telephone = function(input) {
 			$result.html(result).addClass('animating');
 			//setTimeout(function() { $result.removeClass('animating'); }, 8500);
 			console.log('Telephone: ' + result);
+			tweet(result + ' #rgt_results');
 		}
 	});
 };
@@ -113,7 +114,6 @@ var processFinalMessage = function(message) {
 	// Remove/stop animation if has already happened/started
 	$result.removeClass('animating');
 	telephone(message);
-	tweet(message + ' #rgt_results');
 };
 
 $(document).ready(function(){
