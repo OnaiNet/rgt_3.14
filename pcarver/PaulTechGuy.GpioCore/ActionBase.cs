@@ -13,7 +13,7 @@ namespace PaulTechGuy.GpioCore
 		public string InstanceName { get; set; }
 
 		[JsonProperty(PropertyName = "taskId", Required = Required.Default)]
-		public Guid TaskId { get; set; } = Guid.Empty;
+		public string TaskId { get; set; } = null;
 
 	}
 }

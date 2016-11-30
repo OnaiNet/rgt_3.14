@@ -23,6 +23,11 @@ namespace PaulTechGuy.TranslateApiConsoleHost.Controllers
 
 		private async Task<TranslationItem> DoTranslation(string text, string lang)
 		{
+			if (string.IsNullOrWhiteSpace(text) || string.IsNullOrWhiteSpace(lang))
+			{
+				throw new HttpResponseException(HttpStatusCode.BadRequest);
+			}
+
 			HttpClient client = new HttpClient();
 			client.DefaultRequestHeaders.Accept.Clear();
 			client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -44,6 +49,9 @@ namespace PaulTechGuy.TranslateApiConsoleHost.Controllers
 				{
 					item = await response.Content.ReadAsAsync<TranslationItem>();
 					newText = item.Text[0];
+
+					// adjust the language returned since right now it holds just the last translation
+					item.Language = lang;
 				}
 			}
 
