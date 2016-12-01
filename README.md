@@ -62,5 +62,27 @@ If you missed the demo in person, here's essentially what happened:
 10. Machine 0 also tweets the result: https://twitter.com/hashtag/rgt_results
 
 ## Raspberry Pi Notes
+There are lots of guides and information out there about the Raspberry Pi. Start by checking out the Raspberry Pi Foundation's website:
+https://www.raspberrypi.org/help/
+
+One thing we have done to save time is we pre-loaded the SD cards with the Raspbian Jessie Operating System with Pixel (desktop). This is a Debian-based ARM-architecture lightweight Linux distribution.
+
+If you want to install a different OS, you're welcome to do so, but you'll have less group support.
 
 ## Getting Started
+### Hardware
+1. Get all your parts out and make sure you're not missing something. You should have:
+  1. Raspberry Pi
+  2. Small package of two heat sinks
+  3. A MicroSD card
+  4. A clear case for your Pi
+  5. A power cord
+2. IF NEEDED: A DVI-to-HDMI adapter (CHG is LENDING these to us; please plan to return it) -- let me know if you need one
+3. Put on your heat sinks - they have sticky-back adhesive
+4. Put your Pi in its case
+5. Plug in your display, a keyboard and mouse, then plug in the power
+  1. *NOTE:* The Pi does NOT have a power button. You power it on by plugging it in. You can power it off using software shutdown, but you will have to unplug/plug it back in to power it on. This is why you should plug your display and peripherals in before plugging in the power.
+
+
+  
+  
