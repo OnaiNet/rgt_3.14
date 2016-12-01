@@ -71,6 +71,7 @@ If you want to install a different OS, you're welcome to do so, but you'll have 
 
 ## Getting Started
 ### Hardware
+
 1. Get all your parts out and make sure you're not missing something. You should have:
   1. Raspberry Pi
   2. Small package of two heat sinks
@@ -80,9 +81,54 @@ If you want to install a different OS, you're welcome to do so, but you'll have 
 2. IF NEEDED: A DVI-to-HDMI adapter (CHG is LENDING these to us; please plan to return it) -- let me know if you need one
 3. Put on your heat sinks - they have sticky-back adhesive
 4. Put your Pi in its case
-5. Plug in your display, a keyboard and mouse, then plug in the power
+5. Plug in your pre-formatted MicroSD card
+6. Plug in your display, a keyboard and mouse, then plug in the power
   1. *NOTE:* The Pi does NOT have a power button. You power it on by plugging it in. You can power it off using software shutdown, but you will have to unplug/plug it back in to power it on. This is why you should plug your display and peripherals in before plugging in the power.
 
+### Software
+Once you boot up, there are a few configuration things you'll want to do. You'll want to get connected so you can update your software. Plug into a network via Ethernet, or connect via Wifi (there is a Wifi icon in the upper-right hand corner in Pixel that can guide you through connecting to MOST networks).
 
+#### Connect to CHG's Wifi
+CHG's Wifi is is a WPA2-Enterprise network and is not handled by Pixel's default GUI-based Wifi connector. I can help you get connected to CHG's Wifi.
+
+#### Connect to CHG's VPN
+For now, you might have to figure out how to do this on your own if you plan on working with your Pi remotely.
+
+#### First time setup
+Once you are connected:
+
+1. `sudo apt-get update && sudo apt-get upgrade` (this will update apt-get and upgrade your OS)
+  1. You may need to reboot your Pi after this
+2. `sudo rasbi-config` (this runs the Raspberry Pi configuration program)
+  1. Set your timezone
+  2. Set your locale (by default everything is set up for the UK)
+  3. Set your language as US-English
+  4. Set your keyboard layout
+
+### Programming languages
+Raspbian comes with:
+
+1. Perl (5.20)
+2. Java (1.8)
+3. Nodejs (0.10)
+4. Python (2.7.9)
+
+You can install pretty much anything. I used PHP (5.6) for my demo. Paul used C# with Mono for his demo.
+
+### Editors
+Raspbian comes with:
+
+1. Nano
+2. VIM (VI-IMproved)
+3. Probably some others
+
+VIM is superior. No battle.
+
+Most people find Nano simpler, however. I'll help you with VIM if you want, someone else will help you with Nano.
+
+You can install a plethora of other editors such as Visual Studio Code (VSCode) or Emacs.
+
+### Git
+Rasbpian comes with Git installed. We are using GitHub, so that's good. You'll need to use Git to clone this repository. You will store all your code in this project so we can all share.
   
   
