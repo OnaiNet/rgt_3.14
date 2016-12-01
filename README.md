@@ -89,7 +89,16 @@ If you want to install a different OS, you're welcome to do so, but you'll have 
 Once you boot up, there are a few configuration things you'll want to do. You'll want to get connected so you can update your software. Plug into a network via Ethernet, or connect via Wifi (there is a Wifi icon in the upper-right hand corner in Pixel that can guide you through connecting to MOST networks).
 
 #### Connect to CHG's Wifi
-CHG's Wifi is is a WPA2-Enterprise network and is not handled by Pixel's default GUI-based Wifi connector. I can help you get connected to CHG's Wifi.
+CHG's Wifi is is a WPA2-Enterprise network and is not handled by Pixel's default GUI-based Wifi connector. To connect:
+
+1. `sudo vi /etc/wpa_supplicant/wpa_supplicant.conf` (edit this file with whichever editor you prefer)
+1. Get a copy of the configuration settings from Kevin.
+1. Save the file, exit to the terminal
+1. `sudo wpa_cli status` (confirm your Wifi adapter is on, but INACTIVE)
+1. `sudo wpa_cli reconfigure` (tells the Wireless adapter to re-load its configuration)
+1. `sudo wpa_cli reconnect`
+1. `sudo wpa_cli status` (this should show AUTHENTICATED or something else to indicate it is connected/connecting. You run this command multiple times to see the status update)
+1. `ifconfig` (this is similar to `ipconfig` in Windows; shows each network adapter and its status. "wlan0" is the Wireless adapter. Ideally, we'd like to see a '10.10.x.x' address here once connected.)
 
 #### Connect to CHG's VPN
 For now, you might have to figure out how to do this on your own if you plan on working with your Pi remotely.
@@ -99,7 +108,7 @@ Once you are connected:
 
 1. `sudo apt-get update && sudo apt-get upgrade` (this will update apt-get and upgrade your OS)
   1. You may need to reboot your Pi after this
-2. `sudo rasbi-config` (this runs the Raspberry Pi configuration program)
+2. From the main menu: Preferences -> Raspberry Pi Configuration **or** `sudo raspi-config` (this runs the Raspberry Pi configuration program)
   1. Set your timezone
   2. Set your locale (by default everything is set up for the UK)
   3. Set your language as US-English
