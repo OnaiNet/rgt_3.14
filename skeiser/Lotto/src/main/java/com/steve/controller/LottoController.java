@@ -35,11 +35,12 @@ public class LottoController {
     public LottoWinners pickWinners(@RequestBody LottoEntries payload) {
     	List<Entry> entries = new ArrayList<Entry>();
     	List<Entry> winners= new ArrayList<Entry>();
-    	entries = payload.getEntries();//.stream().forEach(c -> System.out.println(c.getFirstName()));
-    	System.err.println(entries.size());
+    	entries = payload.getEntries();
+	int winnerCount = payload.getWinnerCount();
+    	System.err.println("Entries" +entries.size() + " Winner Count" + winnerCount);
     	Random randomGenerator = new Random();
     	List<Integer>intList = new ArrayList<Integer>();
-    	for (int idx = 1; idx <= 8; ++idx){
+    	for (int idx = 1; idx <= winnerCount; ++idx){
     		int randomInt = 0;
     		if(randomInt == 0)
     			randomInt = showRandomInteger(1, entries.size(), randomGenerator);
