@@ -48,8 +48,8 @@ namespace PaulTechGuy.PiGpioConsoleHost.Controllers
 		}
 
 		[HttpDelete]
-		[Route("~/gpio/task/{id:guid}")]
-		public IHttpActionResult DeleteActionTask(Guid id)
+		[Route("~/gpio/task/{id}")]
+		public IHttpActionResult DeleteActionTask(string id)
 		{
 			bool requestCancelExists = ActionQueueManager.Instance.CancelTask(id);
 			if (requestCancelExists)
@@ -59,8 +59,8 @@ namespace PaulTechGuy.PiGpioConsoleHost.Controllers
 		}
 
 		[HttpGet]
-		[Route("~/gpio/task/{id:guid}")]
-		public IHttpActionResult GetActionTask(Guid id)
+		[Route("~/gpio/task/{id}")]
+		public IHttpActionResult GetActionTask(string id)
 		{
 			ActionTaskItem taskItem = ActionQueueManager.Instance.GetTask(id);
 			if (taskItem != null)

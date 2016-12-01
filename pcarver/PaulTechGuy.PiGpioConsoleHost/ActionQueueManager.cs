@@ -15,7 +15,7 @@ namespace PaulTechGuy.PiGpioConsoleHost
 {
 	public class ActionQueueManager
 	{
-		private static readonly ConcurrentDictionary<Guid, ActionTaskItem> _actionTasks = new ConcurrentDictionary<Guid, ActionTaskItem>();
+		private static readonly ConcurrentDictionary<string, ActionTaskItem> _actionTasks = new ConcurrentDictionary<string, ActionTaskItem>();
 		private static readonly BlockingCollection<ActionQueueItem> _actionQueue = new BlockingCollection<ActionQueueItem>();
 		private static readonly Lazy<ActionQueueManager> _instance
 			= new Lazy<ActionQueueManager>(() => new ActionQueueManager());
@@ -87,7 +87,7 @@ namespace PaulTechGuy.PiGpioConsoleHost
 
 				if (queueItem != null)
 				{
-					bool doThreaded = _actionThreading && queueItem.Action.TaskId != Guid.Empty;
+					bool doThreaded = _actionThreading && !string.IsNullOrWhiteSpace(queueItem.Action.TaskId);
 					if (doThreaded)
 					{
 						try
@@ -216,7 +216,7 @@ namespace PaulTechGuy.PiGpioConsoleHost
 			return tasks;
 		}
 
-		public ActionTaskItem GetTask(Guid taskId)
+		public ActionTaskItem GetTask(string taskId)
 		{
 			ActionTaskItem taskItem = null;
 			if (_actionTasks.TryGetValue(taskId, out taskItem))
@@ -232,7 +232,7 @@ namespace PaulTechGuy.PiGpioConsoleHost
 			return taskItem;
 		}
 
-		public bool CancelTask(Guid taskId)
+		public bool CancelTask(string taskId)
 		{
 			ActionTaskItem taskItem;
 			bool exists = false;
