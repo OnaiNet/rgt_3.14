@@ -8,6 +8,7 @@ Rube-Goldberg Telephone Pi (aka RGT 3.14) - A silly project, just for fun and le
 1. [What is RGT 3.14?](#what-is-rgt-314)
 2. [Raspberry Pi Notes](#raspberry-pi-notes)
 3. [Getting Started](#getting-started)
+4. [RGT Ideas](#rgt-ideas)
 
 ## What is RGT 3.14?
 
@@ -127,17 +128,96 @@ You can install pretty much anything. I used PHP (5.6) for my demo. Paul used C#
 ### Editors
 Raspbian comes with:
 
-1. Nano
-2. VIM (VI-IMproved)
-3. Probably some others
+* Command-line editors
+  1. Nano
+  2. VIM (VI-IMproved)
+* Window-based/GUI editors
+  1. Geany
+  2. Some others?
 
-VIM is superior. No battle.
+VIM is superior. No battle. It does have a steep learning curve though.
 
 Most people find Nano simpler, however. I'll help you with VIM if you want, someone else will help you with Nano.
+
+Geany seems like a strong option if you are using the Pi connected to a monitor in the desktop environment.
 
 You can install a plethora of other editors such as Visual Studio Code (VSCode) or Emacs.
 
 ### Git
 Rasbpian comes with Git installed. We are using GitHub, so that's good. You'll need to use Git to clone this repository. You will store all your code in this project so we can all share.
   
-  
+## RGT Ideas
+
+### Possible text translations:
+1. SoundEX fuzzy matching (perfect for "Telephone" game)
+  1. Find similar sounding words
+  1. Convert to phonetic version
+2. Levenshtein Distance - Swap a word or two with close distance
+  1. PHP algorithm
+3. Metaphone algorithm
+4. Synonyms of random words
+  1. http://thesaurus.altervista.org/
+5. Swap words - maybe nouns only?
+  1. Would need to be able to identify nouns, verbs (Natural language processing)
+  1. Stanford NLP Group
+  1. Stanford Parser
+6. Convert to another language *
+7. Convert back to English *
+8. Change phrase tense?
+  1. Would need to be able to determine and convert tense
+9. Add punctuation
+10. Add random adverbs or adjectives
+  1. Must be able to identify nouns, verbs
+11. Dialect conversion - 
+  1. See for ideas: http://rinkworks.com/dialect/
+  1. Snoop Dogg ala Gizoogle (Warning - offensive language)
+    1. http://www.gizoogle.net/
+    1. Noun: Drop last vowel+consonant, add izzle
+      1. Dog = dizzle
+      1. Hamilton = Hamiltizzle
+  1. Redneck
+  1. LA-girl (add random 'like's)
+12. Replace word-parts with other random word-parts from dictionary
+  1. Replace a noun with another random noun
+13. Convert case - lower, upper, mixed, random
+
+\* - Could be re-used/multiple times
+
+### Possible Visual Transitions:
+1. Zoom-in/out
+2. Visually typed out
+3. Spinning, growing, etc.
+4. Show text flowing into a "machine" and getting spit out
+  1. Conveyor belt
+5. "Typewriter" style output
+  1. Possibly with sound, paper-look background
+6. 3-D effects
+7. "The Matrix"
+8. GPIO - LED's, RGB's, beeps, etc.
+
+### Possible Data Transport Methods:
+1. WebService call (SOAP/REST)
+2. HTTP Form POST / GET
+3. Pub/Sub MessageQueue (e.g. RabbitMQ)
+4. Websockets
+5. Twitter publish/read *
+6. Write to floppy disk
+  1. Someone physically moves floppy disk *
+7. Other hardware?? Arduino? Switches? Actual RG-type things??
+  1. Actuator pushes ball down ramp, hits button?... (but this isn't transmitting text…)
+  1. BUT…. This could tell the system when to read from a floppy or something like that
+8. Print out text -> Scan + OCR on the receiving side
+9. Text-to-image -> OCR on Image
+10. Text-to-speech -> Speech-to-text
+11. Read screen via camera + OCR
+12. FTP *
+13. SSH
+14. SCP *
+15. rsync *
+16. NTFS *
+17. Email *
+18. Azure bus *
+19. UDP sockets
+20. TCP direct connection
+21. netcat
+22. Microsoft Flow
