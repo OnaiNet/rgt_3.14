@@ -92,7 +92,7 @@ Once you boot up, there are a few configuration things you'll want to do. You'll
 CHG's Wifi is is a WPA2-Enterprise network and is not handled by Pixel's default GUI-based Wifi connector. To connect:
 
 1. `sudo vi /etc/wpa_supplicant/wpa_supplicant.conf` (edit this file with whichever editor you prefer)
-1. Get a copy of the configuration settings from Kevin.
+1. Refer to the example [WPA supplicant config file](setup/wpa_supplicant.conf)
 1. Save the file, exit to the terminal
 1. `sudo wpa_cli status` (confirm your Wifi adapter is on, but INACTIVE)
 1. `sudo wpa_cli reconfigure` (tells the Wireless adapter to re-load its configuration)
