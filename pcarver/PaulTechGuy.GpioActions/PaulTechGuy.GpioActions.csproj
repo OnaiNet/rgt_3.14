@@ -52,8 +52,10 @@
   <ItemGroup>
     <Compile Include="BuzzerSimpleAction.cs" />
     <Compile Include="HandlerBuzzerSimpleAction.cs" />
+    <Compile Include="HandlerLedBuzzerSimpleAction.cs" />
     <Compile Include="HandlerLedSimpleAction.cs" />
     <Compile Include="HandlerRgbSimpleAction.cs" />
+    <Compile Include="LedBuzzerSimpleAction.cs" />
     <Compile Include="LedSimpleAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RgbSimpleAction.cs" />

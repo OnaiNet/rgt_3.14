@@ -27,6 +27,7 @@ namespace PaulTechGuy.PiGpioConsoleHost
 			{ nameof(RgbSimpleAction), new HandlerRgbSimpleAction() },
 			{ nameof(LedSimpleAction), new HandlerLedSimpleAction() },
 			{ nameof(BuzzerSimpleAction), new HandlerBuzzerSimpleAction() },
+			{ nameof(LedBuzzerSimpleAction), new HandlerLedBuzzerSimpleAction() },
 		};
 
 		// do we allow threaded actions?
