@@ -17,6 +17,8 @@ Other notes:
 
 Do the following from within this 'kgwynn' directory:
 
+1. Install American dictionary
+  1. `sudo apt-get install wamerican`
 1. Install PHP
   1. `sudo apt-get install php5` (double-check this)
 1. Install NPM
@@ -26,5 +28,6 @@ Do the following from within this 'kgwynn' directory:
 1. Install all Bower components
   1. `bower install` (this installs Codebird PHP, a Twitter library)
 1. Turn on web-server
-  1. `php -S localhost:8080 webroot`
+  1. `cd webroot`
+  1. `php -S localhost:8080`
 1. Access by going to 'http://localhost:8080' or by using IP or a known hostname
