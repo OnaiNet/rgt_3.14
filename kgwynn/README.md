@@ -13,3 +13,21 @@ Other notes:
 * Using Codebird-PHP Twitter library (via Bower)
 * Using jQuery and CSS3 Transitions / Animations for UI
 
+## SETUP
+
+Do the following from within this 'kgwynn' directory:
+
+1. Install American dictionary
+  1. `sudo apt-get install wamerican`
+1. Install PHP
+  1. `sudo apt-get install php5` (double-check this)
+1. Install NPM
+  1. `sudo apt-get install npm`
+1. Install Bower
+  1. `sudo npm install -g bower`
+1. Install all Bower components
+  1. `bower install` (this installs Codebird PHP, a Twitter library)
+1. Turn on web-server
+  1. `cd webroot`
+  1. `php -S localhost:8080`
+1. Access by going to 'http://localhost:8080' or by using IP or a known hostname
