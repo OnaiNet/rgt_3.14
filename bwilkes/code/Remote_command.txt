@@ -1,0 +1,3 @@
+ssh -i ida_rsa.txt pi@10.10.144.43 ./speech2text_start.sh
+
+ssh -i ida_rsa.txt pi@bwilkes.rgt ./speech2text_start.sh
