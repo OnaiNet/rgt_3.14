@@ -21,17 +21,8 @@ import com.steve.model.LottoEntries;
 @RequestMapping("/lotto")
 public class LottoController {
 
-    private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
 
-
-    /*
-    @RequestMapping(method = RequestMethod.POST)
-    public Winner pickWinners(@RequestParam(value="name", defaultValue="World") String name) {
-        return new Winner(counter.incrementAndGet(),
-                            String.format(template, name));
-    }
-    */
     @RequestMapping(method = RequestMethod.POST)
     public LottoWinners pickWinners(@RequestBody LottoEntries payload) {
     	List<Entry> entries = new ArrayList<Entry>();
@@ -58,19 +49,7 @@ public class LottoController {
 
     	return lottoWinners;
     }
-    /*
-    @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<LottoEntries> runLotto(
-            @RequestBody LottoEntries requestWrapper) {
-    	List<Entry> entries = new ArrayList<Entry>();
-        requestWrapper.getEntries().stream()
-                .forEach(c -> c.setMiles(c.getMiles() + 100));
 
-        // TODO: call persistence layer to update
-
-        return new ResponseEntity<LottoEntries>(requestWrapper, HttpStatus.OK);
-    }
-    */
     private int showRandomInteger(int aStart, int aEnd, Random aRandom){
         if (aStart > aEnd) {
           throw new IllegalArgumentException("Start cannot exceed End.");
