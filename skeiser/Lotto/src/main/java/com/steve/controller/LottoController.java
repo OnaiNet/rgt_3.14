@@ -18,6 +18,7 @@ import com.steve.model.LottoWinners;
 import com.steve.model.LottoEntries;
 
 @RestController
+@RequestMapping("/lotto")
 public class LottoController {
 
     private static final String template = "Hello, %s!";
