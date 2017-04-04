@@ -39,7 +39,10 @@ class RGTWebSocketServer extends WebSocketServer {
       return;
     }
 
+    // Get file contents as string
     $output = file_get_contents('output');
+    
+    // Delete file
     unlink('output');
 
     // broadcast output file contents to all users
