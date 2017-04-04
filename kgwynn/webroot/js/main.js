@@ -124,7 +124,8 @@ $(document).ready(function(){
 	$input.focus();
 
 	// Open socket to listen for result
-	connection = new WebSocket('ws://pcarver.rgt:8005');
+	//connection = new WebSocket('ws://pcarver.rgt:8005');
+	connection = new WebSocket('ws://sfarnworth.rgt:9000');
 	
 	connection.onopen = function() {
 		console.log('WebSocket opened; listening for result');
