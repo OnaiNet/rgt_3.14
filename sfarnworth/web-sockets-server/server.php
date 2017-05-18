@@ -43,7 +43,7 @@ class RGTWebSocketServer extends WebSocketServer {
     $output = file_get_contents('output');
     
     // Delete file
-    unlink('output');
+    rename('output', 'output_' . date('Ymd-His'));
 
     // broadcast output file contents to all users
     foreach ($this->users as $user) {

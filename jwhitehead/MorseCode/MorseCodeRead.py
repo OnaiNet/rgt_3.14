@@ -4,6 +4,8 @@ import sys
 from datetime import datetime
 
 morseAlphabet = {'': '',
+	'{': '-.-.-',
+	'}': '.-.-.',
 	' ': ' ',
 	"'": '.----.',
 	'(': '-.--.-',
@@ -56,6 +58,8 @@ morseAlphabet = {'': '',
 
 inverseMorseAlphabet=dict((v,k) for (k,v) in morseAlphabet.items())
 
+filename = "/home/pi/rgt_3.14/sfarnworth/web-sockets-server/output" 
+getMessage = False
 
 dot = 450
 word = 5*dot
@@ -64,6 +68,7 @@ GPIO.setmode(GPIO.BCM)
 count = 0
 tstart = datetime.now()
 tend = datetime.now()
+
 
 morseLetter = ''
 
@@ -80,6 +85,9 @@ def my_callback(channel):
     global tstart
     global tend
     global morseLetter
+    global getMessage
+    global message
+    global filename
   
     if GPIO.input(17):
 	tstart = datetime.now()
@@ -87,11 +95,22 @@ def my_callback(channel):
 	milliseconds = int(delta.total_seconds()*1000)
 
         if milliseconds > dot:
-		sys.stdout.write(inverseMorseAlphabet[morseLetter])
+		try:
+			letter = inverseMorseAlphabet[morseLetter]
+		except KeyError, e:
+			letter = '_'
+		if getMessage:
+			sys.stdout.write(letter)
+			message = message + letter
+		if letter == '{':
+			sys.stdout.write("\nBegin message\n")
+                        getMessage = True
+			message = ""
 		morseLetter = ''		
 		#sys.stdout.write(' ')
 		sys.stdout.flush()	
 	if milliseconds > word:
+		message = message + ' '
 		sys.stdout.write(' ')
 		sys.stdout.flush()
 #    	print "Rising Edge detected on 17:", count
@@ -103,14 +122,14 @@ def my_callback(channel):
 	count = count + 1  
     	if milliseconds > dot:
 		morseLetter += '-'
-		#sys.stdout.write('-')
+		sys.stdout.write('-')
 		sys.stdout.flush()
 	else:
 		morseLetter += '.'
-		#sys.stdout.write('.')
+		sys.stdout.write('.')
 		sys.stdout.flush()
 
-raw_input("Press Enter when ready\n>")  
+#raw_input("Press Enter when ready\n>")  
   
 # when a falling edge is detected on port 17, regardless of whatever   
 # else is happening in the program, the function my_callback will be run  
@@ -124,10 +143,22 @@ while True:
         milliseconds = int(delta.total_seconds()*1000)
         if milliseconds > (10*dot):
 		letter = inverseMorseAlphabet.get(morseLetter, ' ')
-		if letter != '':
-			sys.stdout.write(letter)
+		if letter == '}':
+			sys.stdout.write("\nEnd message\n")
+                        sys.stdout.write("\nReceived message: ")
+			sys.stdout.write(message)
+			getMessage = False
 			sys.stdout.write('\n')
                 	morseLetter = ''
-			#sys.stdout.write('done\n')
-                	sys.stdout.flush()
+			sys.stdout.write('\nWrite output file: ')
+			sys.stdout.write(filename)
+			sys.stdout.write('\n')
+                	
+			sys.stdout.flush()
+						
+			target = open(filename, 'w')
+			target.truncate()
+		        target.write(message)
+			target.close()
+			#sys.exit(0)
 
