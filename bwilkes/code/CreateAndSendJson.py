@@ -2,20 +2,25 @@ import sys
 import json
 import requests
 
-json_string = '{"message":' + str(sys.argv[1:]) + '}'
+headers = {'Content-type': 'application/json'}
+
+
+json_string = '{"message": "' + str(sys.argv[1:]) + '"}'
+#print(json_string)
 
 json_string = json_string.replace("[","")
+#print(json_string)
 
 json_string = json_string.replace("]","")
+#print(json_string)
 
-json_string = json_string.replace('"',"'")
+json_string = json_string.replace("'","")
+#print(json_string)
 
-print(json_string)
+print(len(json_string))
 
-#r = requests.post("http://localhost:8080", json=json_string)
+r = requests.post("http://67.166.103.221:60916/telephone/", data=json_string, headers=headers)
 
-#print(str(sys.argv[1:]))
-#json_data = simplejson.dumps(json_string)
-#payload = {'json_payload': json_data}
-#r = requests.post("http://localhost:8080", data=payload)
+print(r.status_code)
+
 
