@@ -31,3 +31,9 @@ Do the following from within this 'kgwynn' directory:
   1. `cd webroot`
   1. `php -S localhost:8080`
 1. Access by going to 'http://localhost:8080' or by using IP or a known hostname
+
+## Considerations
+
+I'm considering adding an AMQP listener in the main front-end client to listen to a queue of messages to which we could log events to track the process through. Here's a possible library: https://github.com/dansimpson/amqp-js
+
+If Steve's Pi was set up with an endpoint that would just queue these messages, it would involve a simple cURL request on each machine when it receives input and when it sends output.

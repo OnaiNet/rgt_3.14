@@ -58,7 +58,7 @@ var animateInput = function() {
 	setTimeout(function() { 
 		$output.removeClass('animating');
 		tweet(output + ' #rgt_output');
-		broadcast(output);
+		//broadcast(output);
 	}, 8500);
 };
 

@@ -16,7 +16,7 @@ if (empty($input)) {
 	exit(0);
 }
 
-echo telephone_convert($input);
+echo strtoupper(telephone_convert($input));
 
 function telephone_convert($input) {
 	$length = strlen($input);
